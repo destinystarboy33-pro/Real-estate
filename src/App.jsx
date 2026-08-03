@@ -28,10 +28,10 @@ function App() {
           <Route path= '/about' element={<About />}></Route>
           <Route path= '/Contact' element= {<Contact />}></Route>
           <Route path='/Services' element= {<Services />}></Route>
-        </Route>
-
         <Route path='/AllHouses' element={<AllHouses />}></Route>
         <Route path='/House/:id' element={<HouseDetails  />}></Route>
+        </Route>
+
        
         <Route path='/Search' element={<Search />}></Route>
       </Routes>

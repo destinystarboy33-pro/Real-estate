@@ -77,7 +77,7 @@ import { useState } from "react";
 
                               {/* MOBLIE    NAVBAR */}
 
-        <div className={` ${isOpen ? 'flex' : 'hidden '} flex-col mt-20 fixed top-0 right-0 left-0 z-10 bg-gray-200 `}>
+        <div className={` ${isOpen ? 'flex' : 'hidden '} flex-col mt-20 fixed top-0 right-0 left-0 z-10 bg-gray-200 py-10 `}>
           <nav>
             <ul className="flex flex-col gap-10 mx-5">
               <li><NavLink to={"/"} onClick={HandleClose}

@@ -1,12 +1,13 @@
 import HouseData from "../Data/houseData";
 import { NavLink } from "react-router-dom";
 import BackButton from "../Components/BackButton";
+import Button from "../Components/Button";
 
 const AllHouses = () => {
   return (
 
     
-    <div className=" w-full min-h-screen relative pb-20">
+    <div className=" w-full min-h-screen relative pb-20 mt-20">
        <BackButton />
       <h1 className="flex items-center justify-center mt-7 font-extrabold text-2xl md:text-4xl text-orange-500">
         Property Grid
@@ -18,7 +19,7 @@ const AllHouses = () => {
             key={house.id}
             className="w-full rounded-md  bg-white flex flex-col pb-5 md:h-fit rounded-bl-xl rounded-br-xl shadow-gray-400 shadow-xl"
           >
-            <NavLink key={house.id} to={`/House/${house.id}`}>
+            {/* <NavLink key={house.id} to={`/House/${house.id}`}> */}
               <img
                 src={house.image}
                 alt={house.name}
@@ -39,8 +40,18 @@ const AllHouses = () => {
                   <p className="font-semibold text-xl">${house.price}/month</p>
                   {/* <NavLink key={house.id} to={`/House/${house.id}`}><button className='bg-blue-800 px-3 py-1 rounded-3xl whitespace-nowrap text-white font-medium text-md'>Book Now</button></NavLink> */}
                 </div>
+                <NavLink
+                key={house.id}
+                to={`/House/${house.id}`}
+                className="w-full"
+              >
+                <Button
+                  text="View property"
+                  className=" bg-blue-600 text-white py-2 w-full"
+                />
+              </NavLink>
               </div>
-            </NavLink>
+            {/* </NavLink> */}
           </div>
         ))}
       </div>
