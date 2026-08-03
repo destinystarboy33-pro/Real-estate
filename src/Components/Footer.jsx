@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
         <div className="h-0.5 bg-gray-400"></div>
     
-      <p className="text-black">&copy;{NewYear} CloudString Properties</p>
+      <p className="text-black text-center">&copy;{NewYear} CloudString Properties</p>
     </div>
     </div>
   );
