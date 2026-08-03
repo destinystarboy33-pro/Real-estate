@@ -18,7 +18,7 @@ const Footer = () => {
         <i className="fa-brands fa-x cursor-pointer"></i>
         <i className="fa-brands fa-instagram cursor-pointer  text-red-700"></i>
       </div>
-        <div className="h-0.5 bg-gray-700"></div>
+        <div className="h-0.5 bg-gray-400"></div>
     
       <p className="text-black">&copy;{NewYear} CloudString Properties</p>
     </div>
