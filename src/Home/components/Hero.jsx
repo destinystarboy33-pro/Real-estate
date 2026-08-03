@@ -34,7 +34,7 @@ import { Link } from "react-router-dom";
               </Link>
         </div>
 
-      <div className="flex  gap-5 font-semibold text-md md:text-2xl mt-15 px-5 bg-amber-300">
+      <div className="flex  gap-5 font-semibold text-md md:text-2xl mt-15 text-lg ">
           <div className="text-white">
               <h1 className="flex justify-center">1200+</h1>
               <p className=" whitespace-nowrap">Listed properties</p>
