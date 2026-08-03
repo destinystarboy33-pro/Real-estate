@@ -21,7 +21,7 @@ import { useState } from "react";
     return (
       
       <div>
-        <header className="flex flex-row justify-between bg-blue-800 p-5 fixed z-20 top-0 right-0 left-0">
+        <header className="flex flex-row justify-between bg-blue-800 px-5  py-3 md:py-6 fixed z-20 top-0 right-0 left-0">
           <div className="flex justify-between bg-amber-200">
 
             {/* <p className="text-3xl text-white font-bold">STARBOY HOUSING</p> */}
