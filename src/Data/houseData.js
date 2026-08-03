@@ -14,6 +14,7 @@ const HouseData = [
         price:'4,300',
         oldPrice:'4,700',
         desc: 'Modern 4-bedroom duplex with spacious rooms, premium finishes, ample Parking Modern football Pitch.',
+        distance: '23km'
 
     },
 
@@ -25,7 +26,9 @@ const HouseData = [
         views: '3,678',
         price:'3,300',
         OldPrice:'3,500',
-        desc: 'Luxury apartment featuring a contemporary design, bright interiors, and a fully fitted kitchen.'
+        desc: 'Luxury apartment featuring a contemporary design, bright interiors, and a fully fitted kitchen.',
+        distance: '13km'
+
 
 
     },
@@ -38,7 +41,9 @@ const HouseData = [
         views: '1850',
         price: '4,000',
          OldPrice:'4,250',
-        desc: 'Beautiful maintained property with a private garden, secure environment, and 24/7 power supply. '
+        desc: 'Beautiful maintained property with a private garden, secure environment, and 24/7 power supply. ',
+        distance: '31km'
+
 
 
     },
@@ -52,6 +57,8 @@ const HouseData = [
         price:'5,900',
         OldPrice:'6,400',
         desc: 'Elegant family home located peaceful neighborhood, close to schools and shopping centers.',
+        distance: '56km'
+
 
 
     },
@@ -64,7 +71,9 @@ const HouseData = [
         views: '4756',
         price:'4,300' ,
        OldPrice:'4,500',
-        desc: 'Stylish home offering comfort, convenience, and easy access to major roads and public amenities.'
+        desc: 'Stylish home offering comfort, convenience, and easy access to major roads and public amenities.',
+        distance: '33km'
+
 
 
     },
@@ -77,7 +86,9 @@ const HouseData = [
         views: '3,727',
         price:'4,000',
         OldPrice:'4,200',
-        desc: 'Move-in-ready residence with modern bathrooms, large living spaces, and excellent security.'
+        desc: 'Move-in-ready residence with modern bathrooms, large living spaces, and excellent security.',
+        distance: '39km'
+
 
 
     },

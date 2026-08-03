@@ -11,7 +11,7 @@ const HouseDetails = () => {
   return (
     
     <div className=" flex flex-col md:flex md:flex-row h-fit w-fit mt-10 mx-8">
-      <BackButton />
+     <BackButton />
       <img src={House.image} alt="" className="text-amber-950 rounded-2xl" />
       <div className="mt-10 flex flex-col gap-5  md:mr-20 md:ml-5">
         <div className="flex gap-8 mt-10">
@@ -26,7 +26,7 @@ const HouseDetails = () => {
         <div className="mt-10 flex flex-col justify-between">
           <h1 className="text-5xl font-extrabold">{House.name}</h1>
           <p className="text-3xl font-semibold">Special Offer%</p>
-          <p className="text-2xl">5Km away from Bustop</p>
+          <p className="text-2xl">{House.distance} away from Bustop</p>
 
           <div className="flex gap-4 text-2xl mt-5">
             <del className="text-red-300 font-extrabold">${House.OldPrice}</del>
@@ -44,7 +44,7 @@ const HouseDetails = () => {
           </button>
         </div>
       </div>
-      <BackButton />
+      
     </div>
   );
 };

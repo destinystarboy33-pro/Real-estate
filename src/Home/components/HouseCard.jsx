@@ -18,7 +18,7 @@ const HouseCard = () => {
             <img
               src={house.image}
               alt={house.name}
-              className="w-full h-50 md:h-80"
+              className="w-full h-50 md:h-80 hover:scale-110 transition-all"
             />
 
             <div className="flex flex-col items-start px-5">

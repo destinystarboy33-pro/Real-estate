@@ -13,6 +13,7 @@ import Layout from './Layouts/Layout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HouseDetails from './pages/HouseDetails'
 import Search from './pages/Search'
+import ScrollToTop from './pages/ScrollToTop'
 
 function App() {
   return(
@@ -20,6 +21,7 @@ function App() {
     
     <BrowserRouter>
       {/* <Header/> */}
+       <ScrollToTop />
       <Routes>
         <Route element={<Layout/>}>
           <Route path='/' element={<Index/>}></Route>
