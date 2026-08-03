@@ -1,4 +1,5 @@
 import house1 from "../../assets/house1.jpg";
+import { Link } from "react-router-dom";
   const Hero = () => {
     return (
       <div className="bg-cover bg-no-repeat bg-center w-full md:min-h-150 mt-19 md:mt-19 pt-10"
@@ -18,15 +19,19 @@ import house1 from "../../assets/house1.jpg";
             We provide hight-quality rental, sales listing to help find the
             perfect home
           </p>
-        <div className="flex justify-between bg-white  rounded-md md:p-2 p-1 mt-10 ">
+        <div className="flex gap-8 bg-white w-fit rounded-md md:p-2 p-1 mt-10 ">
           <p className="flex items-center gap-1.5 text-black font-semibold">
+            
               <i className="fa-solid fa-location-dot text-red-600"></i>
+        
               <span>City Street</span>
           </p>
 
-          <input type="text" className=" border-2 border-orange-400 rounded-xl focus:border-2 focus:border-orange-400 focus:outline-none"  placeholder="London City"/>
+          {/* <input type="text" className=" border-2 border-orange-400 rounded-xl focus:border-2 focus:border-orange-400 focus:outline-none"  placeholder="London City"/> */}
 
-          <button className="bg-black text-white rounded-xl px-5">Search</button>
+              <Link to={'/Search'}>
+          <button className="text-gray-500 rounded-xl px-5 cursor-pointer"><i className="fa-solid fa-magnifying-glass"></i></button>
+              </Link>
         </div>
 
       <div className="flex  gap-5 font-semibold text-md md:text-2xl mt-15">

@@ -1,13 +1,13 @@
 import Hero from "./components/Hero"
+import HouseCard from "./components/HouseCard"
 import Hero2 from "./components/Hero2"
-import Hero3 from "./components/Hero3"
 
 function Index () {
   return (
     <div>
       <Hero />
+      <HouseCard />
       <Hero2 />
-      <Hero3 />
     </div>
   )
 }

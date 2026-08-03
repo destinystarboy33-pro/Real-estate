@@ -10,9 +10,9 @@
         <p className="text-md font-mono">We're active 24/7</p>
         </div>
 
-      <div className="flex items-center justify-between px-2 gap-3 md:mx-20">
+      <div className="flex flex-col md:flex-row items-center justify-between px-2 gap-3 md:mx-20 ">
 
-        <div className="flex flex-col gap-5 ">
+        <div className="flex flex-col gap-5">
 
 
         <div className=" flex items-center justify-start gap-2">
