@@ -33,7 +33,7 @@ function App() {
         <Route path='/AllHouses' element={<AllHouses />}></Route>
         <Route path='/House/:id' element={<HouseDetails  />}></Route>
        
-     <Route path='/Search' element={<Search />}></Route>
+        <Route path='/Search' element={<Search />}></Route>
       </Routes>
       
      {/* <Footer /> */}

@@ -14,6 +14,10 @@ import { useState } from "react";
       setIsOpen(!isOpen)
     }
 
+    const HandleClose = () =>{
+      setIsOpen(false)
+    }
+
     return (
       
       <div>
@@ -73,19 +77,19 @@ import { useState } from "react";
 
                               {/* MOBLIE    NAVBAR */}
 
-        <div className={` ${isOpen ? 'flex' : 'hidden '} flex-col mt-22 `}>
+        <div className={` ${isOpen ? 'flex' : 'hidden '} flex-col mt-20 fixed top-0 right-0 left-0 z-10 bg-gray-200 `}>
           <nav>
             <ul className="flex flex-col gap-10 mx-5">
-              <li><NavLink to={"/"}
+              <li><NavLink to={"/"} onClick={HandleClose}
                     className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>Home</NavLink></li>
 
-              <li><NavLink to={"/Contact"}
+              <li><NavLink to={"/Contact"} onClick={HandleClose}
                     className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>Contact</NavLink> </li>
 
-              <li><NavLink to={"/About"}
+              <li><NavLink to={"/About"} onClick={HandleClose}
                     className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>About</NavLink></li>
 
-                    <li><NavLink to={"/Service"}
+                    <li><NavLink to={"/Services"} onClick={HandleClose}
                     className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>Service</NavLink></li>
             </ul>
           </nav>

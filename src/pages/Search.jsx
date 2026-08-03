@@ -20,7 +20,7 @@ const Search = () => {
     <div className="flex flex-col">
         <div className='flex justify-between my-3 mx-5 md:mx-10'>
           <BackButton/>
-          <input type="text" placeholder='Search Property' onChange={(e) => setSearch(e.target.value)} className='outline-none border border-gray-200 rounded-lg text-center px-10' />
+          <input type="text" placeholder='Search Property' onChange={(e) => setSearch(e.target.value)} className='outline-none border border-gray-200 rounded-lg text-center px-5' />
           <button  className=' cursor-pointer'><i className="fa-solid fa-magnifying-glass"></i></button>
 
         </div>

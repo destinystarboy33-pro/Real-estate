@@ -2,8 +2,10 @@
 
 const Services = () => {
   return (
-    <div>
-      <p>This is service page</p>
+    <div className="min-h-screen mt-20">
+
+
+      <p className="text-3xl font-bold ">COMING SOON...</p>
     </div>
   )
 }
