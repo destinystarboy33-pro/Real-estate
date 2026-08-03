@@ -4,7 +4,10 @@ import BackButton from "../Components/BackButton";
 
 const AllHouses = () => {
   return (
+
+    
     <div className=" w-full min-h-screen relative pb-20">
+       <BackButton />
       <h1 className="flex items-center justify-center mt-7 font-extrabold text-2xl md:text-4xl text-orange-500">
         Property Grid
       </h1>
@@ -42,7 +45,7 @@ const AllHouses = () => {
         ))}
       </div>
 
-      <BackButton />
+     
     </div>
   );
 };
