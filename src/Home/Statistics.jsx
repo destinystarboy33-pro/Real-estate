@@ -81,18 +81,18 @@ const Statistics = () => {
   return (
     <div className="flex gap-5 items-center justify-center mx-15">
                                     {/* Statistics */}
-       <div className="">
+       <div className=" tabular-nums">
         <h1 className=" text-center">Clients Worldwide</h1>
         <p className="text-2xl font-bold text-center">{display}+</p>
         </div>   
 
-        <div className="">
+        <div className=" tabular-nums">
           <h1 className=" text-center">Year Of Experience</h1>
            <p className="text-2xl font-bold text-center">{display2}+</p>
         </div>  
 
 
-        <div className="">
+        <div className=" tabular-nums">
          <h1 className=" text-center">Customer Satisfaction</h1> 
           <p className="text-2xl font-bold text-center">{count3}%</p>
           </div>                        
