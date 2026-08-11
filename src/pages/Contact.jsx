@@ -3,7 +3,7 @@
  const Contact = () => {
    return (
      <div className="flex items-center justify-center py-10 min-h-screen md:px-10 px-5 mt-20">
-     <div className="flex flex-col  justify-center bg-gray-300 rounded-xl border-2 border-gray-700  w-full md:min-w-200 p-5 " >
+     <div className="flex flex-col  justify-center bg-gray-300 rounded-xl border-2 border-gray-100  w-full md:min-w-200 p-5 " >
 
         <div className="flex flex-col justify-center items-center">
             <h1 className='font-extrabold text-2xl md:text-4xl text-black'>Get in touch</h1> 
@@ -46,13 +46,13 @@
 
         <div className="flex flex-col">
           <label>Full Name</label>
-          <input type="text"  className=" border-2 border-gray-700 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"   placeholder="Full name"/>
+          <input type="text"  className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"   placeholder="Full name"/>
 
           <label >Email</label>
-          <input type="email" className=" border-2 border-gray-700 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="support@gmail.com" />
+          <input type="email" className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="support@gmail.com" />
 
           <label htmlFor="">Message Us</label>
-          <textarea className=" border-2 border-gray-700 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="Write Your Message Here"></textarea>
+          <textarea className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="Write Your Message Here"></textarea>
 
           <button className="bg-blue-700 text-white py-2 my-2 rounded-md cursor-pointer hover:bg-blue-900">Submit</button>
         </div>

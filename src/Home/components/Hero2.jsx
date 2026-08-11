@@ -11,7 +11,7 @@ const Hero2 = () => {
         <div key={Apartment.id} className=" flex flex-col items-center justify-center bg-gray-300 border-2 border-blue-700 rounded-xl px-10 py-5 shadow-gray-400 shadow-xl">
             <i className={`${Apartment.icon} text-blue-600 text-3xl`}></i>
             <h1 className="text-gray-900 font-bold">{Apartment.name}</h1>
-            <p className="text-gray-900 font-bold">{Apartment.Properties}</p>
+            <p className="text-gray-900 font-bold text-center">{Apartment.Properties}</p>
         </div>
 
 

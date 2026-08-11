@@ -1,6 +1,7 @@
 import Hero from "./components/Hero"
 import HouseCard from "./components/HouseCard"
 import Hero2 from "./components/Hero2"
+import Statistics from "./Statistics"
 
 function Index () {
   return (
@@ -8,6 +9,7 @@ function Index () {
       <Hero />
       <HouseCard />
       <Hero2 />
+      <Statistics />
     </div>
   )
 }

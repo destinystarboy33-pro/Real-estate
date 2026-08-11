@@ -5,9 +5,12 @@ import Button from "../../Components/Button";
 const HouseCard = () => {
   return (
     <div className=" w-full min-h-screen pb-20">
-      <h1 className="flex items-center justify-center mt-7 font-extrabold text-2xl md:text-4xl text-orange-500">
-        Property Grid
-      </h1>
+      <div className="flex flex-col text-center items-center justify-center mt-7">
+      <p className="bg-blue-300 w-fit py-1 px-5 rounded-2xl text-blue-900">Featured Listings</p>
+      <h1 className="  font-extrabold text-2xl md:text-4xl text-orange-500">
+        Discover Your Dream Property</h1>
+        <p>Explore our handpicked selection of premium properties Worldwide most desirable locations.</p>
+      </div>
 
       <div className="w-full min-h-screen flex flex-col gap-5 px-10 md:grid md:grid-cols-3 mt-10">
         {HouseData.slice(0, 6).map((house) => (
@@ -49,14 +52,15 @@ const HouseCard = () => {
           </div>
         ))}
 
-        <div className="w-full relative mt-16">
-          <NavLink to={"/AllHouses"}>
-            <h1 className=" text-xl font-bold text-black w-fit mt-10 mr-0 absolute bottom-5 right-0">
+        <div className="w-full bg-amber-700 relative mt-16 px-50">
+          <NavLink to={"/AllHouses"} className=' absolute right-0'>
+          
+            <h1 className=" text-xl font-bold text-black w-fit mt-10 mr-0">
               See more
               <span>
                 <i className="fa-solid fa-chevron-right"></i>
               </span>
-            </h1>{" "}
+            </h1>
           </NavLink>
         </div>
       </div>
