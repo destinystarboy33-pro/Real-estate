@@ -53,7 +53,7 @@ const HouseCard = () => {
         ))}
 
         <div className="w-full bg-amber-700 relative mt-16 px-50">
-          <NavLink to={"/AllHouses"} className=' absolute right-0'>
+          <NavLink to={"/AllHouses"} className=' absolute right-5'>
           
             <h1 className=" text-xl font-bold text-black w-fit mt-10 mr-0">
               See more
