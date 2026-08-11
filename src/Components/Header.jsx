@@ -57,7 +57,7 @@ import { useState } from "react";
             </ul>
           </nav>
           <div className="">
-           <div onClick={HandleOpen} className="text-3xl text-black md:hidden">
+           <div onClick={HandleOpen} className="text-3xl text-white md:hidden">
 
             <div  className={`${isOpen ? 'hidden ' : 'block'}cursor-pointer`}><i className="fa-solid fa-bars"></i></div>
 

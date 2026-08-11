@@ -53,9 +53,9 @@ const HouseCard = () => {
         ))}
 
         <div className="w-full bg-amber-700 relative mt-16 px-50">
-          <NavLink to={"/AllHouses"} className=' absolute right-10'>
+          <NavLink to={"/AllHouses"} className=''>
           
-            <h1 className=" text-xl font-bold text-black w-fit mt-10 mr-0">
+            <h1 className=" text-xl font-bold text-black w-fit mt-10 mr-0  absolute right-10">
               See more
               <span>
                 <i className="fa-solid fa-chevron-right"></i>
