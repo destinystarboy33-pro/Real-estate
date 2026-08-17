@@ -81,6 +81,10 @@ const Statistics = () => {
 
 
   return (
+
+    <div>
+
+    
     <div className="flex gap-5 items-center justify-center mx-15">
                                     {/* Statistics */}
        <div className="w-24">
@@ -117,7 +121,10 @@ const Statistics = () => {
 
 
 
-                          {/* reviews */}
+                          
+    </div>
+
+    {/* reviews */}
                           <h1 className='text-center text-3xl font-bold mt-20'>Our Clients Reviews</h1>
 
     </div>
