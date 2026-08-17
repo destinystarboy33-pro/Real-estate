@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect, useRef } from "react"
 
 
 const Statistics = () => {
@@ -12,6 +12,8 @@ const Statistics = () => {
     const[count3, setCount3] = useState(0)
     const target3 = 98
 
+    const statref = useRef(null)
+
    useEffect(() =>{
 
     const interval1 =  setInterval (() =>{
@@ -21,7 +23,7 @@ const Statistics = () => {
     } clearInterval(interval1)
     return prev
   })
-   }, 10)
+   }, 8)
 
 
    const interval2 = setInterval(() =>{
@@ -33,7 +35,7 @@ const Statistics = () => {
         return prev 
       })
 
-   }, 2)
+   }, 4)
 
    const interval3 = setInterval(() =>{
    setCount3((prev) =>{
@@ -81,20 +83,20 @@ const Statistics = () => {
   return (
     <div className="flex gap-5 items-center justify-center mx-15">
                                     {/* Statistics */}
-       <div className=" tabular-nums">
+       <div className="w-24">
         <h1 className=" text-center">Clients Worldwide</h1>
-        <p className="text-2xl font-bold text-center">{display}+</p>
+        <p className="text-2xl font-bold text-center tabular-nums">{display}+</p>
         </div>   
 
-        <div className=" tabular-nums">
+        <div className="w-24">
           <h1 className=" text-center">Year Of Experience</h1>
-           <p className="text-2xl font-bold text-center">{display2}+</p>
+           <p className="text-2xl font-bold text-center tabular-nums">{display2}+</p>
         </div>  
 
 
-        <div className=" tabular-nums">
+        <div className="w-24 ">
          <h1 className=" text-center">Customer Satisfaction</h1> 
-          <p className="text-2xl font-bold text-center">{count3}%</p>
+          <p className="text-2xl font-bold text-center tabular-nums">{count3}%</p>
           </div>                        
 
 

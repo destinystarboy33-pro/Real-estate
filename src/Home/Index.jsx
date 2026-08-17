@@ -2,7 +2,7 @@ import Hero from "./components/Hero"
 import HouseCard from "./components/HouseCard"
 import Hero2 from "./components/Hero2"
 import Statistics from "./Statistics"
-
+import Testimonial from "./components/Testimonial"
 function Index () {
   return (
     <div>
@@ -10,6 +10,8 @@ function Index () {
       <HouseCard />
       <Hero2 />
       <Statistics />
+      <Testimonial />
+
     </div>
   )
 }
