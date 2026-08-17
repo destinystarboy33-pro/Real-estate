@@ -54,7 +54,7 @@ const Testimonial = () => {
       
     <div className=" mx-5 mt-20">
 
-        <h1 className='text-center text-3xl font-bold my-10'>Our Clients Reviews</h1>
+        
 
       <div className='flex flex-col bg-blue-100 rounded-lg p-5 '>
         <div className='flex justify-between items-center mb-5'>

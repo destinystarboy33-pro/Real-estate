@@ -100,6 +100,26 @@ const Statistics = () => {
           </div>                        
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          {/* reviews */}
+                          <h1 className='text-center text-3xl font-bold mt-20'>Our Clients Reviews</h1>
+
     </div>
   )
 }
