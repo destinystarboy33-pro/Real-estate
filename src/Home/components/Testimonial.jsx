@@ -1,6 +1,7 @@
 import house1 from '../../assets/house1.jpg'
 import  {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
+import 'swiper/css/pagination'
 import { Pagination } from 'swiper/modules'
 
 
