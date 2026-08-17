@@ -10,7 +10,7 @@ const reviews = [
 
     { 
         image : house1,
-        star : 'fa-class fa-star',
+        star : 'fa-solid fa-star',
         comment : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni officiis modi provident illum.',
         name : 'Lorem, ipsum.'
 
@@ -18,21 +18,21 @@ const reviews = [
 
     {
       image : house1,
-        star : 'fa-class fa-star',
+        star : 'fa-solid fa-star',
         comment : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni officiis modi provident illum.',
         name : 'Lorem, ipsum.'  
     },
 
     {
         image : house1,
-        star : 'fa-class fa-star',
+        star : 'fa-solid fa-star',
         comment : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni officiis modi provident illum.',
         name : 'Lorem, ipsum.'
     },
 
     {
         image : house1,
-        star : 'fa-class fa-star',
+        star : 'fa-solid fa-star',
         comment : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni officiis modi provident illum.',
         name : 'Lorem, ipsum.'
     }
