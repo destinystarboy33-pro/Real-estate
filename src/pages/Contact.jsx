@@ -27,7 +27,7 @@
            <i className="fa-solid fa-envelope"></i>
           <div className="flex flex-col">
             <h1 className="text-xl font-semibold">Email us</h1>
-            <p>starboyproperties@gmail.com</p>
+            <p>cloudstringproperties@gmail.com</p>
           </div>
         </div>
 

@@ -44,7 +44,7 @@ const Footer = () => {
         <h1 className="font-bold text-lg">Contact Us</h1>
         <div className="text-gray-700 flex flex-col gap-2">
           <p><i className="fa-solid fa-phone text-green-600 mr-3"></i><span>+6221 34490 560</span></p>
-          <p><i className="fa-solid fa-envelope text-orange-500 mr-3"></i><span>starboyproperties@gmail.com</span></p>
+          <p><i className="fa-solid fa-envelope text-orange-500 mr-3"></i><span>cloudstringproperties@gmail.com</span></p>
           <p><i className="fa-solid fa-location-dot text-red-600 mr-3"></i><span>22 Fulham,London</span></p>
         </div>
       </div>
