@@ -1,6 +1,7 @@
 import house1 from '../../assets/house1.jpg'
 import  {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
+import { Pagination } from 'swiper/modules'
 
 
 
@@ -38,7 +39,11 @@ const reviews = [
 
 const Testimonial = () => {
   return (
-     <Swiper spaceBetween={20}
+     <Swiper
+     modules={[Pagination]}
+     pagination={{clickable: true}}
+     loop={true}
+      spaceBetween={20}
      slidesPerView={1}>
         {reviews.map((items, Index) =>(
      <SwiperSlide key={Index}>
