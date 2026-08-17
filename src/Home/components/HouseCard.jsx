@@ -52,7 +52,7 @@ const HouseCard = () => {
           </div>
         ))}
 
-        <div className="w-full bg-amber-700 mt-16 px-50">
+        <div className="w-fit">
           <NavLink to={"/AllHouses"} className=''>
           
             <h1 className=" text-xl font-bold text-black w-fit mt-10 ">
