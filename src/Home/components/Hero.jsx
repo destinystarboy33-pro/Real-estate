@@ -1,7 +1,9 @@
 import house1 from "../../assets/house1.jpg";
 import { Link } from "react-router-dom";
+import Reveal from "../../Components/Reveal";
   const Hero = () => {
     return (
+      <Reveal>
       <div className="bg-cover bg-no-repeat bg-center w-full md:min-h-150 mt-19 md:mt-19 pt-10"
         style={{backgroundImage: `url(${house1})`}}>
         {/* <img
@@ -54,6 +56,7 @@ import { Link } from "react-router-dom";
         </div>
 
       </div>
+      </Reveal>
     );
   };
 

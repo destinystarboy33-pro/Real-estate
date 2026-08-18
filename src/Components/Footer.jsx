@@ -27,6 +27,8 @@ const Footer = () => {
       </div>
       </div>
 
+
+      
       <div className="flex flex-col gap-3">
         <h1 className="font-bold text-lg">Quick Links</h1>
         <nav className="text-gray-700">
@@ -47,6 +49,8 @@ const Footer = () => {
           <p><i className="fa-solid fa-envelope text-orange-500 mr-3"></i><span>cloudstringproperties@gmail.com</span></p>
           <p><i className="fa-solid fa-location-dot text-red-600 mr-3"></i><span>22 Fulham,London</span></p>
         </div>
+      
+
       </div>
         <div className="h-0.5 bg-gray-400"></div>
     

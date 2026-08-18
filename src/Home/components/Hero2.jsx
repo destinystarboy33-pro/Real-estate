@@ -1,7 +1,9 @@
 import ApartmentData from "../../Data/apartmentData"
+import Reveal from "../../Components/Reveal"
 
 const Hero2 = () => {
   return (
+    <Reveal>
     <div className="flex flex-col items-center justify-center mt-10 mb-5 mx-5">
       <h1 className='flex items-center justify-center mt-7 font-extrabold text-2xl md:text-4xl text-orange-500 py-5'>Explore Apartment Types</h1>
 
@@ -30,6 +32,7 @@ const Hero2 = () => {
         ))}
       </div>
     </div>
+    </Reveal>
   )
 }
 

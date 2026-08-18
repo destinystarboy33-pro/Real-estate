@@ -6,6 +6,7 @@ import  {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper/modules'
+import Reveal from '../../Components/Reveal'
 
 
 
@@ -43,6 +44,7 @@ const reviews = [
 
 const Testimonial = () => {
   return (
+    <Reveal>
      <Swiper
      modules={[Pagination]}
      pagination={{clickable: true}}
@@ -59,7 +61,7 @@ const Testimonial = () => {
       <div className='flex flex-col bg-blue-100 rounded-lg p-5 '>
         <div className='flex justify-between items-center mb-5'>
             <img src={items.image} alt="" className='w-20 h-20 rounded-lg' />
-            <p className='font-extrabold font-[Tangerine] text-center'> {items.name}</p>
+            <p className='font-extrabold  text-center'> {items.name}</p>
             <div className='text-yellow-400'>
                 {/* <i className={items.star}></i> */}
                 <i className={items.star}></i>
@@ -80,6 +82,7 @@ const Testimonial = () => {
     </SwiperSlide>
       ))}
     </Swiper>
+    </Reveal>
   )
 }
 

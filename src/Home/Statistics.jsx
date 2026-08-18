@@ -1,4 +1,5 @@
 import { useState,useEffect, } from "react"
+import Reveal from "../Components/Reveal"
 
 
 const Statistics = () => {
@@ -81,6 +82,7 @@ const Statistics = () => {
 
 
   return (
+    <Reveal>
 
     <div>
 
@@ -88,19 +90,19 @@ const Statistics = () => {
     <div className="flex gap-5 items-center justify-center mx-15">
                                     {/* Statistics */}
        <div className="w-24">
-        <h1 className=" text-center font-[Tangerine] font-bold">Clients Worldwide</h1>
+        <h1 className=" text-center  font-bold">Clients Worldwide</h1>
         <p className="text-2xl font-bold text-center tabular-nums">{display}+</p>
         </div>   
 
         <div className="w-24">
-          <h1 className=" text-center font-[Tangerine] font-bold">Year Of Experience</h1>
-           <p className="text-2xl font-bold text-center tabular-nums font-[Pacifico]">{display2}+</p>
+          <h1 className=" text-center  font-bold">Year Of Experience</h1>
+           <p className="text-2xl font-bold text-center tabular-nums ">{display2}+</p>
         </div>  
 
 
         <div className="w-24 ">
-         <h1 className=" text-center font-[Tangerine] font-bold">Customer Satisfaction</h1> 
-          <p className="text-2xl font-bold text-center tabular-nums font-[Pacifico]">{count3}%</p>
+         <h1 className=" text-center  font-bold">Customer Satisfaction</h1> 
+          <p className="text-2xl font-bold text-center tabular-nums ">{count3}%</p>
           </div>                        
 
 
@@ -129,6 +131,7 @@ const Statistics = () => {
 
 
     </div>
+    </Reveal>
   )
 }
 

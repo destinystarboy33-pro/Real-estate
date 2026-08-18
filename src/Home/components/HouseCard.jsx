@@ -1,9 +1,11 @@
 import HouseData from "../../Data/houseData";
 import { NavLink } from "react-router-dom";
 import Button from "../../Components/Button";
+import Reveal from "../../Components/Reveal";
 
 const HouseCard = () => {
   return (
+    <Reveal>
     <div className=" w-full min-h-screen pb-20">
       <div className="flex flex-col text-center items-center justify-center mt-7">
       <p className="bg-blue-300 w-fit py-1 px-5 rounded-2xl text-blue-900">Featured Listings</p>
@@ -65,6 +67,7 @@ const HouseCard = () => {
         </div>
       </div>
     </div>
+    </Reveal>
   );
 };
 
