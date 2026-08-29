@@ -10,6 +10,7 @@ Router.get('/', getproperties)
 Router.get('/:id', getPropertyById)
 Router.post('/', authMiddleware, adminMiddleware, upload.single('image'), CreateProperty)
 Router.patch('/:id', authMiddleware, adminMiddleware, upload.single('image'), UpdateProperty)
+Router.post("/test-upload", upload.single("image"), CreateProperty);
 Router.delete('/:id', authMiddleware, adminMiddleware, DeleteProperty)
 
 export default Router

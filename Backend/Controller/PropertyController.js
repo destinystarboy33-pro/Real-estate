@@ -1,4 +1,5 @@
 import Property from "../Model/PropertyModel.js"
+import cloudinary from "../config/cloudinary.js"
 
                 // GET PROPERTIES
 
@@ -17,38 +18,58 @@ res.status(500).json({
 }
 
                         // CREATE PROPERTIES
-const CreateProperty = async(req, res) =>{
-   try{
+const CreateProperty = async (req, res) => {
+  try {
     const {
-      
-        name,
-        location,
-        views,
-        price
-    } = req.body
+      name,
+      location,
+      views,
+      price
+    } = req.body;
 
-    const image = req.file.filename
+    const result = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: "real-estate"
+        },
+        (error, result) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(result);
+          }
+        }
+      );
+
+      stream.end(req.file.buffer);
+    });
+
+    const image = result.secure_url;
+
     const property = await Property.create({
-         image,
-        name,
-        location,
-        views,
-        price
-    })
-console.log("CREATE PROPERTY REACHED");
-    console.log('BODY:', req.body);
-    console.log('FILE' ,req.file);
+      image,
+      name,
+      location,
+      views,
+      price
+    });
+
+    console.log("CREATE PROPERTY REACHED");
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
     res.status(201).json({
-        message: 'Successfuly Uploaded'
-    })
-   } catch(error){
-    res.status(500).json({
-        message: 'failed', error: error.message
-    })
-   }
-}
+      message: "Successfully Uploaded",
+      property
+    });
 
+  } catch (error) {
+    res.status(500).json({
+      message: "failed",
+      error: error.message
+    });
+  }
+};
                         // UPDATE PROPERTIES
 
 
