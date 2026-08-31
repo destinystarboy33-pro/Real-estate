@@ -134,7 +134,7 @@ const ForgotPassword = () => {
 
           <button
             type="button"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/")}
             className="text-sm font-semibold text-blue-600 hover:underline"
           >
             Back to Login
