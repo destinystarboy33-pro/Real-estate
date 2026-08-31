@@ -72,7 +72,7 @@ const AllHouses = () => {
                 </div>
                 <NavLink
                 key={house.id}
-                to={`/House/${house.id}`}
+                to={`/House/${house._id}`}
                 className="w-full"
               >
                 <Button
