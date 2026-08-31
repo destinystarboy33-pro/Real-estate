@@ -72,7 +72,7 @@ const Sidebar = () => {
               </button>
                </NavLink>
 
-              <NavLink to={'AllProperties/'}>
+              <NavLink to={'/AllProperties'}>
               <button className="flex w-full items-center gap-4 rounded-lg p-3 text-left hover:bg-blue-100">
                 <i className="fa-solid fa-building text-blue-700"></i>
                 All Properties
