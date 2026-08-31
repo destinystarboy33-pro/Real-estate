@@ -20,7 +20,7 @@ const AllProperties = () => {
     try {
 
       const response = await axios.get(
-        "http://localhost:8000/api/Router"
+        "https://real-estate-qtye.onrender.com/api/Router"
       );
 
       console.log(response.data);
@@ -52,7 +52,7 @@ const AllProperties = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:8000/api/Router/${deleteId}`,
+        `https://real-estate-qtye.onrender.com/api/Router/${deleteId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -110,7 +110,7 @@ const AllProperties = () => {
             {/* IMAGE */}
 
             <img
-              src={`http://localhost:8000/uploads/${property.image}`}
+              src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
               alt={property.name}
               className="h-60 w-full object-cover"
             />

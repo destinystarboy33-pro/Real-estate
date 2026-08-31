@@ -44,7 +44,7 @@ const ResetPassword = () => {
     try {
 
       const response = await axios.post(
-        "http://localhost:8000/api/auth/reset-password",
+        "https://real-estate-qtye.venrender.com/api/auth/reset-password",
         {
           email,
           code,

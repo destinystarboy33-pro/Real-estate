@@ -27,7 +27,7 @@ const VerifyResetCode = () => {
     try {
 
       const response = await axios.post(
-        "http://localhost:8000/api/auth/verify-reset-code",
+        "https://real-estate-qtye.venrender.com/api/auth/verify-reset-code",
         {
           email,
           code

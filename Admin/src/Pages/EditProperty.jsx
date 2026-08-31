@@ -30,7 +30,7 @@ const EditProperty = () => {
       try {
 
         const response = await axios.get(
-          `http://localhost:8000/api/Router/${id}`
+          `https://real-estate-qtye.onrender.com/api/Router/${id}`
         );
 
         const property = response.data;
@@ -90,7 +90,7 @@ const EditProperty = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.patch(
-        `http://localhost:8000/api/Router/${id}`,
+        `https://real-estate-qtye.onrender.com/api/Router/${id}`,
         formData,
         {
           headers: {

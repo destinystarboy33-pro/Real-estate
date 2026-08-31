@@ -45,7 +45,7 @@ const AddProperties = () => {
     console.log('selected:', image)
 
     const response = await axios.post(
-      "http://localhost:8000/api/Router",
+      "https://real-estate-qtye.onrender.com/api/Router",
       formData,
       {
         headers: {

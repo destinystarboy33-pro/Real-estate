@@ -32,7 +32,7 @@ const Login = () => {
       setFeedback("");
 
       const response = await axios.post(
-        "http://localhost:8000/api/auth/login",
+        "https://real-estate-qtye.onrender.com/api/auth/login",
         data
       );
 

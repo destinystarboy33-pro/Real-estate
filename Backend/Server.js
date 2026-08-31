@@ -10,6 +10,7 @@ import path from 'path'
 
 
 dotenv.config()
+// console.log(process.env.CLOUDINARY_API_KEY)
 
 const PORT = (process.env.PORT)
 const MONGO_URI = process.env.MONGO_URI
