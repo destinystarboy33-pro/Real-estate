@@ -1,18 +1,55 @@
 // import House1 from '../assets/house1'
-import HouseData from "../Data/houseData";
-import { useParams } from "react-router-dom";
+// import HouseData from "../Data/houseData";
+import { useParams,  } from "react-router-dom";
 import BackButton from "../Components/BackButton";
+import axios from 'axios'
+import { useEffect, useState } from "react";
 // import Button from "../Components/Button";
 
 const HouseDetails = () => {
+
+const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+
+    const getProperties = async () => {
+
+      try {
+
+        const response = await axios.get(
+          "https://real-estate-qtye.onrender.com/api/Router"
+        );
+
+        console.log("PROPERTIES:", response.data);
+
+        setProperties(response.data);
+
+      } catch (error) {
+
+        console.log("ERROR:", error);
+
+      }
+
+    };
+
+    getProperties();
+
+  }, []);
+
+
+
   const { id } = useParams();
-  const House = HouseData.find((item) => item.id === Number(id));
+  const House = properties.find((item) => item._id.toString() ===id);
+
+  if (!House){
+    return <div>loading...</div>
+  }
 
   return (
     
     <div className=" flex flex-col md:flex md:flex-row h-fit w-fit my-20 mx-8">
      <BackButton />
-      <img src={House.image} alt="" className="text-amber-950 rounded-2xl" />
+      <img src={`https://real-estate-qtye.onrender.com/uploads/${House.image}`} alt="" className="text-amber-950 rounded-2xl" />
       <div className="mt-10 flex flex-col gap-5  md:mr-20 md:ml-5">
         <div className="flex gap-8 mt-10">
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">

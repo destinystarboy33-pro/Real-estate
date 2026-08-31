@@ -1,9 +1,39 @@
-import HouseData from "../Data/houseData";
+// import HouseData from "../Data/houseData";
 import { NavLink } from "react-router-dom";
 import BackButton from "../Components/BackButton";
 import Button from "../Components/Button";
+import axios from 'axios'
+import { useEffect, useState } from "react";
 
 const AllHouses = () => {
+
+   const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+
+    const getProperties = async () => {
+
+      try {
+
+        const response = await axios.get(
+          "https://real-estate-qtye.onrender.com/api/Router"
+        );
+
+        console.log("PROPERTIES:", response.data);
+
+        setProperties(response.data);
+
+      } catch (error) {
+
+        console.log("ERROR:", error);
+
+      }
+
+    };
+
+    getProperties();
+
+  }, []);
   return (
 
     
@@ -14,9 +44,9 @@ const AllHouses = () => {
       </h1>
 
       <div className="w-full  min-h-screen flex flex-col gap-5 px-10 md:grid md:grid-cols-3 mt-10">
-        {HouseData.map((house) => (
+        {properties.map((house) => (
           <div
-            key={house.id}
+            key={house._id}
             className="w-full rounded-md  bg-white flex flex-col pb-5 md:h-fit rounded-bl-xl rounded-br-xl shadow-gray-400 shadow-xl"
           >
             {/* <NavLink key={house.id} to={`/House/${house.id}`}> */}
