@@ -15,7 +15,7 @@ dotenv.config()
 const PORT = (process.env.PORT)
 const MONGO_URI = process.env.MONGO_URI
 
-const allowedOrigin = ['http://localhost:5173/AddProperties', 'http://localhost:5173', 'https://admin-dashboard-eight-iota-94.vercel.app', 'https://cloud-string.vercel.app/']
+const allowedOrigin = ['http://localhost:5173/AddProperties', 'http://localhost:5173', 'https://admin-dashboard-eight-iota-94.vercel.app', 'https://cloud-string.vercel.app']
 const app = express()
 
 app.get('/',( req, res) =>{
