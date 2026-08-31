@@ -306,7 +306,7 @@ const login = async (req, res) => {
     // 5. Is password correct?
     if (!isMatch) {
       return res.status(401).json({
-        message: "Invalid email or password"
+        message: "Incorrect password"
       });
     }
 

@@ -15,7 +15,7 @@ const HouseCard = () => {
       try {
 
         const response = await axios.get(
-          "http://localhost:8000/api/Router"
+          "https://real-estate-qtye.onrender.com/api/Router"
         );
 
         console.log("PROPERTIES:", response.data);
@@ -68,7 +68,7 @@ const HouseCard = () => {
             >
 
               <img
-                src={`http://localhost:8000/uploads/${property.image}`}
+                src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
                 alt={property.name}
                 className="w-full h-50 md:h-80 object-cover hover:scale-110 transition-all"
               />
