@@ -15,7 +15,7 @@ dotenv.config()
 const PORT = (process.env.PORT)
 const MONGO_URI = process.env.MONGO_URI
 
-const allowedOrigin = ['http://localhost:5173/AddProperties', 'http://localhost:5173', 'http://localhost:5174']
+const allowedOrigin = ['http://localhost:5173/AddProperties', 'http://localhost:5173', 'http://localhost:5174', 'https://real-estate-qtye.onrender.com']
 const app = express()
 
 app.get('/',( req, res) =>{
