@@ -49,7 +49,10 @@ const [properties, setProperties] = useState([]);
     
     <div className=" flex flex-col md:flex md:flex-row h-fit w-fit my-20 mx-8">
      <BackButton />
-      <img src={`https://real-estate-qtye.onrender.com/uploads/${House.image}`} alt="" className="text-amber-950 rounded-2xl" />
+      <img
+      //  src={`https://real-estate-qtye.onrender.com/uploads/${House.image}`} 
+        src={House.image}
+      alt="" className="text-amber-950 rounded-2xl" />
       <div className="mt-10 flex flex-col gap-5  md:mr-20 md:ml-5">
         <div className="flex gap-8 mt-10">
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">

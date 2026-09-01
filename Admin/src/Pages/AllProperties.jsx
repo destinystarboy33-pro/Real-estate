@@ -15,34 +15,31 @@ const AllProperties = () => {
 
   // GET ALL PROPERTIES
 
+ useEffect(() => {
+  let ignore = false;
+
   const getProperties = async () => {
-
     try {
-
       const response = await axios.get(
         "https://real-estate-qtye.onrender.com/api/Router"
       );
 
       console.log(response.data);
 
-      setProperties(response.data);
-
+      if (!ignore) {
+        setProperties(response.data);
+      }
     } catch (error) {
-
       console.log(error);
-
     }
-
   };
 
+  getProperties();
 
-  useEffect(() => {
-
-    getProperties();
-
-  }, []);
-
-
+  return () => {
+    ignore = true;
+  };
+}, []);
   // DELETE PROPERTY
 
   const handleDelete = async () => {
@@ -65,12 +62,11 @@ const AllProperties = () => {
 
       // Remove deleted property from the screen
 
-      setProperties(
-        properties.filter(
-          (property) => property._id !== deleteId
-        )
-      );
-
+     setProperties((currentProperties) =>
+  currentProperties.filter(
+    (property) => property._id !== deleteId
+  )
+);
 
       setShowDelete(false);
 
@@ -110,7 +106,8 @@ const AllProperties = () => {
             {/* IMAGE */}
 
             <img
-              src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
+              // src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
+                src={property.image}
               alt={property.name}
               className="h-60 w-full object-cover"
             />
