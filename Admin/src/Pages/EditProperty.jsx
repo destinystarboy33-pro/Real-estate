@@ -15,7 +15,8 @@ const EditProperty = () => {
     name: "",
     views: "",
     location: "",
-    price: ""
+    price: "",
+    oldPrice: ""
   });
 
   const [loading, setLoading] = useState(true);
@@ -39,7 +40,8 @@ const EditProperty = () => {
           name: property.name,
           views: property.views,
           location: property.location,
-          price: property.price
+          price: property.price,
+          oldPrice: property.oldPrice
         });
 
       } catch (error) {
@@ -82,6 +84,7 @@ const EditProperty = () => {
       formData.append("views", data.views);
       formData.append("location", data.location);
       formData.append("price", data.price);
+      formData.append("oldPrice", data.oldPrice)
 
       if (image) {
         formData.append("image", image);
@@ -285,6 +288,28 @@ const EditProperty = () => {
               onChange={handlechange}
               min="0"
               placeholder="Enter property price"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              required
+            />
+
+          </div>
+
+
+           {/* oldPRICE */}
+
+          <div>
+
+            <label className="mb-2 block font-semibold text-gray-700">
+              OldPrice
+            </label>
+
+            <input
+              type="number"
+              name="oldPrice"
+              value={data.oldPrice}
+              onChange={handlechange}
+              min="0"
+              placeholder="Enter property oldPrice"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
               required
             />
