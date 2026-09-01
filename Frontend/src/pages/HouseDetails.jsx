@@ -69,15 +69,15 @@ const [properties, setProperties] = useState([]);
           <p className="text-2xl">{House.distance} away from Bustop</p>
 
           <div className="flex gap-4 text-2xl mt-5">
-            <del className="text-red-300 font-extrabold">${House.OldPrice.toLocalString()}</del>
-            <p className="text-green-600 font-extrabold">${House.price.toLocalString()}</p>
+            <del className="text-red-300 font-extrabold">${House.OldPrice.toLocaleString()}</del>
+            <p className="text-green-600 font-extrabold">${House.price.toLocaleString()}</p>
           </div>
           <p className="text-3xl font-medium mt-15">{House.desc}</p>
         </div>
 
         <div className="flex mt-15 gap-3">
           <button className="bg-white text-blue-600 px-5 py-2 rounded-3xl whitespace-nowrap font-medium text-md border border-blue-600">
-            ${House.price}
+            ${House.price.toLocaleString()}
           </button>
           <button className="bg-blue-800 px-3 py-1 rounded-3xl whitespace-nowrap text-white font-medium text-md">
             Book Now

@@ -87,14 +87,14 @@ const HouseCard = () => {
 
                 <p className="text-gray-600">
                   <i className="fa-solid fa-chart-column"></i>{" "}
-                  <span>{property.views}</span>
+                  <span>{property.views.toLocaleString()}</span>
                 </p>
 
 
                 <div className="flex gap-15 md:gap-35">
 
                   <p className="font-semibold text-xl">
-                    ${property.price.toLocalString()}/month
+                    ${property.price.toLocaleString()}/month
                   </p>
 
                 </div>
