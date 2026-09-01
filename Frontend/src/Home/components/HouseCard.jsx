@@ -68,7 +68,8 @@ const HouseCard = () => {
             >
 
               <img
-                src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
+                // src={`https://real-estate-qtye.onrender.com/uploads/${property.image}`}
+                src={property.image}
                 alt={property.name}
                 className="w-full h-50 md:h-80 object-cover hover:scale-110 transition-all"
               />
