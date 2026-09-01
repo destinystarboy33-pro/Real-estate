@@ -25,6 +25,11 @@ const propertySchema = new mongoose.Schema({
     price :{
        type: Number,
        required: true
+    },
+
+    oldPrice :{
+        type: Number,
+        required: true
     }
 
 

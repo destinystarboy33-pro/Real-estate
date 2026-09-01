@@ -10,7 +10,8 @@ const AddProperties = () => {
         name: '',
         views: '',
         location: '',
-        price: ''
+        price: '',
+        oldPrice: ''
     })
 
 
@@ -61,6 +62,7 @@ const AddProperties = () => {
       views: "",
       location: "",
       price: "",
+      oldPrice: ""
     });
 
     setImage(null);
@@ -173,6 +175,25 @@ const AddProperties = () => {
               name="price"
               onChange={handlechange}
               placeholder="Enter property price"
+              min="0"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              required
+            />
+          </div>
+
+
+           {/* oldPrice */}
+          <div>
+            <label className="mb-2 block font-semibold text-gray-700">
+              OldPrice
+            </label>
+
+            <input
+              type="number"
+              value={data.oldPrice}
+              onChange={handlechange}
+              name='oldPrice'
+              placeholder="Enter OldPrice"
               min="0"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
               required

@@ -94,7 +94,7 @@ const HouseCard = () => {
                 <div className="flex gap-15 md:gap-35">
 
                   <p className="font-semibold text-xl">
-                    ${property.price}/month
+                    ${property.price.toLocalString()}/month
                   </p>
 
                 </div>

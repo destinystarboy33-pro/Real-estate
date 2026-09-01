@@ -67,7 +67,7 @@ const AllHouses = () => {
                   <span>{house.views}</span>
                 </p>
                 <div className="flex gap-15 md:gap-35">
-                  <p className="font-semibold text-xl">${house.price}/month</p>
+                  <p className="font-semibold text-xl">${house.price.toLocalString()}/month</p>
                   {/* <NavLink key={house.id} to={`/House/${house.id}`}><button className='bg-blue-800 px-3 py-1 rounded-3xl whitespace-nowrap text-white font-medium text-md'>Book Now</button></NavLink> */}
                 </div>
                 <NavLink
