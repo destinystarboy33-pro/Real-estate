@@ -56,10 +56,10 @@ const [properties, setProperties] = useState([]);
       <div className="mt-10 flex flex-col gap-5  md:mr-20 md:ml-5">
         <div className="flex gap-8 mt-10">
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
-            New 🔥
+            New <i className="fa-solid fa-fire"></i>
           </p>
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
-            Featuring 🔥
+            Featuring <i className="fa-solid fa-fire"></i>
           </p>
         </div>
 
