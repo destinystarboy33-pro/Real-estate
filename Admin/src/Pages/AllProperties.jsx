@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Loading from "../Components/Loading";
+import BackBtn from "../Components/BackBtn";
 
 const AllProperties = () => {
 
@@ -99,6 +100,7 @@ const AllProperties = () => {
   return (
 
     <div className="min-h-screen bg-gray-100 px-5 py-10 md:px-10">
+      <BackBtn />
 
       <h1 className="text-3xl font-bold text-blue-700">
         All Properties

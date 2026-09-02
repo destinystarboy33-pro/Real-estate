@@ -10,7 +10,7 @@ import Loading from "../Components/Loading";
 const HouseDetails = () => {
 
 const [properties, setProperties] = useState([]);
-const [loading, setLoading] = useState(false)
+const [loading, setLoading] = useState(true)
 
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const [loading, setLoading] = useState(false)
 
 
   const { id } = useParams();
-  const House = properties.find((item) => item._id.toString() ===id);
+  const House= properties.find((item) => item._id.toString() ===id);
 
   if (loading) {
     return <Loading />
@@ -62,10 +62,10 @@ const [loading, setLoading] = useState(false)
       <div className="mt-10 flex flex-col gap-5  md:mr-20 md:ml-5">
         <div className="flex gap-8 mt-10">
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
-            New <i className="fa-solid fa-fire"></i>
+            New <i className="fa-solid fa-fire-flame-curved bg-linear-to-t from-red-600 via-orange-500 to yellow-300 bg-clip-text text-transparent"></i>
           </p>
           <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
-            Featuring <i className="fa-solid fa-fire"></i>
+            Featuring <i className="fa-solid fa-fire bg-linear-to-t from-red-600 via-orange-500 to yellow-300 bg-clip-text text-transparent"></i>
           </p>
         </div>
 

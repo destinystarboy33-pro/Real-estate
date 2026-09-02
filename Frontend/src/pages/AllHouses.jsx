@@ -25,14 +25,14 @@ const AllHouses = () => {
         console.log("PROPERTIES:", response.data);
 
         setProperties(response.data);
+        setLoading(false)
 
       } catch (error) {
 
         console.log("ERROR:", error);
 
-      } finally{
-        setLoading(false)
       }
+     
 
     };
 

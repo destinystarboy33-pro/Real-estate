@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Loading from '../Components/Loading';
 import { useState } from "react";
+import BackBtn from '../Components/BackBtn';
 
 const AddProperties = () => {
     
@@ -94,6 +95,7 @@ const AddProperties = () => {
   
 
     <div className="min-h-screen bg-gray-100 px-5 py-10 md:px-10">
+      <BackBtn />
 
        {showMessage && (
 

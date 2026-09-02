@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading";
+import BackBtn from "../Components/BackBtn";
 
 const ResetPassword = () => {
 
@@ -91,6 +92,7 @@ const ResetPassword = () => {
   return (
 
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-5">
+      <BackBtn />
 
       <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-md md:p-8">
 

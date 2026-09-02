@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading";
+import BackBtn from "../Components/BackBtn";
 
 const EditProperty = () => {
 
@@ -128,6 +129,7 @@ if (loading) {
   return (
 
     <div className="min-h-screen bg-gray-100 px-5 py-10 md:px-10">
+      <BackBtn />
 
 
 {showMessage && (
