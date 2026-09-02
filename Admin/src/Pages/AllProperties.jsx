@@ -214,7 +214,7 @@ const AllProperties = () => {
               onClick={() => setShowDelete(false)}
               className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
             >
-              ×
+              <i className="fa-solid fa-xmark"></i>
             </button>
 
 
@@ -293,7 +293,7 @@ const AllProperties = () => {
               onClick={() => setShowMessage(false)}
               className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
             >
-              ×
+              <i className="fa-solid fa-xmark"></i>
             </button>
 
 

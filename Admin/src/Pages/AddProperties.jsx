@@ -1,9 +1,11 @@
 import axios from 'axios'
-
+import Loading from '../Components/Loading';
 import { useState } from "react";
 
 const AddProperties = () => {
-
+    
+  const [loading, setLoading] = useState(false)
+  const [showMessage, setShowMessage] = useState(false)
     const [image, setImage] = useState(null)
     const [data, setData] = useState({
         
@@ -33,6 +35,8 @@ const AddProperties = () => {
   e.preventDefault();
 
   try {
+
+    setLoading(true)
 
     const formData = new FormData();
 
@@ -71,10 +75,68 @@ const AddProperties = () => {
 
     console.log(error);
 
+  }  finally{
+    setLoading(false)
   }
+
+
 };
+
+  if (loading) {
+    return <Loading />
+  }
   return (
+  
+  
+
     <div className="min-h-screen bg-gray-100 px-5 py-10 md:px-10">
+
+       {showMessage && (
+
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-5">
+
+          <div className="relative w-full max-w-md rounded-xl bg-white p-8 text-center shadow-2xl">
+
+
+            {/* X */}
+
+            <button
+              onClick={() => setShowMessage(false)}
+              className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+
+
+            {/* CHECK ICON */}
+
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+
+              <i className="fa-solid fa-check text-2xl text-green-600"></i>
+
+            </div>
+
+
+            <h2 className="text-2xl font-bold text-gray-800">
+
+              Success!
+
+            </h2>
+
+
+            <p className="mt-2 text-gray-500">
+
+              Property Added successfully.
+
+            </p>
+
+
+          </div>
+
+        </div>
+
+      )}
+
 
       <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 shadow-md md:p-8">
 
@@ -214,6 +276,7 @@ const AddProperties = () => {
       </div>
 
     </div>
+  
   );
 };
 

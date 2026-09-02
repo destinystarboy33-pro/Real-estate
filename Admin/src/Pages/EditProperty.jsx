@@ -140,7 +140,7 @@ const EditProperty = () => {
         onClick={() => setShowMessage(false)}
         className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
       >
-        ×
+        <i className="fa-solid fa-xmark"></i>
       </button>
 
       <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
