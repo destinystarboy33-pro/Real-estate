@@ -6,6 +6,7 @@ const AddProperties = () => {
     
   const [loading, setLoading] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false)
     const [image, setImage] = useState(null)
     const [data, setData] = useState({
         
@@ -45,6 +46,7 @@ const AddProperties = () => {
     formData.append("views", data.views);
     formData.append("location", data.location);
     formData.append("price", data.price);
+     formData.append("oldPrice", data.oldPrice);
 
     const token = localStorage.getItem("token");
     console.log('selected:', image)
@@ -75,6 +77,7 @@ const AddProperties = () => {
   } catch (error) {
 
     console.log(error);
+    setErrorMessage(true)
 
   }  finally{
     setLoading(false)
@@ -136,6 +139,10 @@ const AddProperties = () => {
 
         </div>
 
+      )}
+
+      {errorMessage && (
+        <p className='text-3xl text-center text-red-500 font-extrabold'>failed to upload</p>
       )}
 
 
@@ -254,8 +261,8 @@ const AddProperties = () => {
             <input
               type="number"
               value={data.oldPrice}
-              onChange={handlechange}
               name='oldPrice'
+              onChange={handlechange}
               placeholder="Enter OldPrice"
               min="0"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
@@ -267,7 +274,7 @@ const AddProperties = () => {
           {/* Button */}
           <button
             type="submit"
-            className="w-full rounded-lg bg-blue-700 py-3 font-semibold text-white transition hover:bg-blue-800"
+            className="w-full rounded-lg bg-blue-700 py-3 font-semibold text-white transition hover:bg-blue-800 cursor-pointer"
           >
             Add Property
           </button>
