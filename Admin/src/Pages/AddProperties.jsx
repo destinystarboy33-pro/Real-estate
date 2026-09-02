@@ -15,7 +15,9 @@ const AddProperties = () => {
         views: '',
         location: '',
         price: '',
-        oldPrice: ''
+        oldPrice: '',
+        description: '',
+        distance: ''
     })
 
 
@@ -48,6 +50,8 @@ const AddProperties = () => {
     formData.append("location", data.location);
     formData.append("price", data.price);
      formData.append("oldPrice", data.oldPrice);
+     formData.append('description', data.description)
+     formData.append('distance', data.distance)
 
     const token = localStorage.getItem("token");
     console.log('selected:', image)
@@ -69,7 +73,10 @@ const AddProperties = () => {
       views: "",
       location: "",
       price: "",
-      oldPrice: ""
+      oldPrice: "",
+       description: '',
+        distance: ''
+
     });
 
     setImage(null);
@@ -268,7 +275,40 @@ const AddProperties = () => {
               placeholder="Enter OldPrice"
               min="0"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              
+            />
+          </div>
+
+           <div>
+            <label className="mb-2 block font-semibold text-gray-700">
+              Property Description
+            </label>
+
+            <input
+              type="text"
+              name="description"
+              value={data.description}
+              onChange={handlechange}
+              placeholder="Enter property Description"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
               required
+            />
+          </div>
+
+           <div>
+            <label className="mb-2 block font-semibold text-gray-700">
+              Distance from Junction
+            </label>
+
+            <input
+              type="number"
+              value={data.distance}
+              name='distance'
+              onChange={handlechange}
+              placeholder="Enter Distance from Junction"
+              min="0"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              
             />
           </div>
 

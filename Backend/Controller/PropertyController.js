@@ -25,7 +25,9 @@ const CreateProperty = async (req, res) => {
       location,
       views,
       price,
-      oldPrice
+      oldPrice,
+       description,
+      distance
     } = req.body;
 
     const result = await new Promise((resolve, reject) => {
@@ -53,7 +55,9 @@ const CreateProperty = async (req, res) => {
       location,
       views,
       price,
-      oldPrice
+      oldPrice,
+      description,
+      distance
     });
 
     console.log("CREATE PROPERTY REACHED");

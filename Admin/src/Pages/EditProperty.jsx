@@ -18,7 +18,10 @@ const EditProperty = () => {
     views: "",
     location: "",
     price: "",
-    oldPrice: ""
+    oldPrice: "",
+     description: '',
+        distance: ''
+
   });
 
   const [loading, setLoading] = useState(false);
@@ -44,7 +47,9 @@ const EditProperty = () => {
           views: property.views,
           location: property.location,
           price: property.price,
-          oldPrice: property.oldPrice
+          oldPrice: property.oldPrice,
+          description: property.description,
+          distance: property.distance
         });
 
       } catch (error) {
@@ -90,6 +95,9 @@ const EditProperty = () => {
       formData.append("location", data.location);
       formData.append("price", data.price);
       formData.append("oldPrice", data.oldPrice)
+       formData.append('description', data.description)
+     formData.append('distance', data.distance)
+
 
       if (image) {
         formData.append("image", image);
@@ -316,6 +324,40 @@ if (loading) {
             />
 
           </div>
+
+           <div>
+            <label className="mb-2 block font-semibold text-gray-700">
+              Property Description
+            </label>
+
+            <input
+              type="text"
+              name="description"
+              value={data.description}
+              onChange={handlechange}
+              placeholder="Enter property Description"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              required
+            />
+          </div>
+
+           <div>
+            <label className="mb-2 block font-semibold text-gray-700">
+              Distance from Junction
+            </label>
+
+            <input
+              type="number"
+              value={data.distance}
+              name='distance'
+              onChange={handlechange}
+              placeholder="Enter Distance from Junction"
+              min="0"
+              className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+              
+            />
+          </div>
+
 
 
           <button

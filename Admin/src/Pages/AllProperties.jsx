@@ -151,7 +151,7 @@ const AllProperties = () => {
 
               <p className="mt-2 font-semibold text-blue-700">
 
-                ₦{property.price.toLocaleString()}
+                ${property.price.toLocaleString()}
 
               </p>
 
@@ -163,6 +163,14 @@ const AllProperties = () => {
                 <i className="fa-solid fa-eye"></i>{" "}
 
                 {property.views.toLocaleString()} views
+
+              </p>
+
+
+               <p className="mt-2 text-gray-500">
+
+              
+                {property.description} 
 
               </p>
 

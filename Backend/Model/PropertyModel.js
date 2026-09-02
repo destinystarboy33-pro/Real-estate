@@ -29,8 +29,19 @@ const propertySchema = new mongoose.Schema({
 
     oldPrice :{
         type: Number,
+        required: false
+    },
+
+    description:{
+        type: String,
         required: true
+    },
+
+    distance:{
+        type: Number,
+        required: false
     }
+
 
 
 })

@@ -78,7 +78,7 @@ const [loading, setLoading] = useState(true)
             <del className="text-red-600 font-extrabold">${House.oldPrice.toLocaleString()}</del>
             <p className="text-green-600 font-extrabold">${House.price.toLocaleString()}</p>
           </div>
-          <p className="text-3xl font-medium mt-15">{House.desc}</p>
+          <p className="text-3xl font-medium mt-15">{House.description}</p>
         </div>
 
         <div className="flex mt-15 gap-3">
