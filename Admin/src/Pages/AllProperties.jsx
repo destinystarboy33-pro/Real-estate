@@ -174,6 +174,14 @@ const AllProperties = () => {
 
               </p>
 
+              <p className="mt-2 text-gray-500">
+
+                <i className="fa-solid fa-road"></i>{" "}
+
+                {property.distance.toLocaleString()} Distance
+
+              </p>
+
 
               {/* EDIT + DELETE */}
 
