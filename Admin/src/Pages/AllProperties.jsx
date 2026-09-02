@@ -178,7 +178,7 @@ const AllProperties = () => {
 
                 <i className="fa-solid fa-road"></i>{" "}
 
-                {property.distance.toLocaleString()} Distance
+                {property.distance} Distance
 
               </p>
 
