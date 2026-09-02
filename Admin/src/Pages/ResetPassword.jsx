@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Loading from "../Components/Loading";
 
 const ResetPassword = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const [loading, setLoading] = useState(false)
 
   const [email, setEmail] = useState(
     location.state?.email || ""
@@ -42,6 +44,7 @@ const ResetPassword = () => {
 
 
     try {
+      setLoading(true)
 
       const response = await axios.post(
         "https://real-estate-qtye.venrender.com/api/auth/reset-password",
@@ -74,9 +77,15 @@ const ResetPassword = () => {
         "Password reset failed"
       );
 
+    } finally{
+      setLoading(false)
     }
 
   };
+
+  if (loading) {
+    return <Loading />
+  }
 
 
   return (

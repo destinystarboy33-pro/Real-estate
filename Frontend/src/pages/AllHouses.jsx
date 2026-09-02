@@ -4,16 +4,19 @@ import BackButton from "../Components/BackButton";
 import Button from "../Components/Button";
 import axios from 'axios'
 import { useEffect, useState } from "react";
+import Loading from "../Components/Loading";
 
 const AllHouses = () => {
 
    const [properties, setProperties] = useState([]);
+   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
 
     const getProperties = async () => {
 
       try {
+        setLoading(true)
 
         const response = await axios.get(
           "https://real-estate-qtye.onrender.com/api/Router"
@@ -27,6 +30,8 @@ const AllHouses = () => {
 
         console.log("ERROR:", error);
 
+      } finally{
+        setLoading(false)
       }
 
     };
@@ -34,6 +39,10 @@ const AllHouses = () => {
     getProperties();
 
   }, []);
+  if (loading) {
+    return <Loading />
+  }
+
   return (
 
     

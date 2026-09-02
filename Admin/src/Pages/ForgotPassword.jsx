@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Components/Loading";
 
 const ForgotPassword = () => {
 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+
+  const [loading, setLoading] = useState(false)
 
   const [message, setMessage] = useState("");
 
@@ -21,6 +24,7 @@ const ForgotPassword = () => {
     setError("");
 
     try {
+      setLoading(true)
 
       const response = await axios.post(
         "https://real-estate-qtye.onrender.com/api/auth/forgot-password",
@@ -53,9 +57,15 @@ const ForgotPassword = () => {
         "Something went wrong"
       );
 
+    } finally{
+      setLoading(false)
     }
 
   };
+
+  if (loading) {
+    return <Loading />
+  }
 
 
   return (

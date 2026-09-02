@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Loading from "../Components/Loading";
 
 const AllProperties = () => {
 
@@ -11,6 +12,7 @@ const AllProperties = () => {
   const [showDelete, setShowDelete] = useState(false);
 
   const [showMessage, setShowMessage] = useState(false);
+  const [loading, setLoading] = useState(false)
 
 
   // GET ALL PROPERTIES
@@ -20,6 +22,7 @@ const AllProperties = () => {
 
   const getProperties = async () => {
     try {
+      setLoading(true)
       const response = await axios.get(
         "https://real-estate-qtye.onrender.com/api/Router"
       );
@@ -31,6 +34,8 @@ const AllProperties = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -45,6 +50,7 @@ const AllProperties = () => {
   const handleDelete = async () => {
 
     try {
+      setLoading(true)
 
       const token = localStorage.getItem("token");
 
@@ -79,9 +85,15 @@ const AllProperties = () => {
 
       console.log(error);
 
+    } finally{
+      setLoading(false)
     }
 
   };
+
+  if (loading) {
+    return <Loading />
+  }
 
 
   return (

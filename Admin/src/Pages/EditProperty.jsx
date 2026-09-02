@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Loading from "../Components/Loading";
 
 const EditProperty = () => {
 
@@ -19,7 +20,7 @@ const EditProperty = () => {
     oldPrice: ""
   });
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 //   const [message, setMessage] = useState("");
 
 
@@ -29,6 +30,7 @@ const EditProperty = () => {
     const getProperty = async () => {
 
       try {
+        setLoading(true)
 
         const response = await axios.get(
           `https://real-estate-qtye.onrender.com/api/Router/${id}`
@@ -78,6 +80,8 @@ const EditProperty = () => {
 
     try {
 
+      setLoading(true)
+
       const formData = new FormData();
 
       formData.append("name", data.name);
@@ -110,19 +114,14 @@ const EditProperty = () => {
 
       console.log(error);
 
+    } finally{
+      setLoading(false)
     }
 
   };
 
-
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p className="text-xl font-semibold">
-          Loading property...
-        </p>
-      </div>
-    );
+if (loading) {
+    return <Loading />
   }
 
 

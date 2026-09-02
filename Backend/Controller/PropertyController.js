@@ -79,7 +79,8 @@ const CreateProperty = async (req, res) => {
             try{
                 const property = await Property.findByIdAndUpdate
                 (req.params.id, req.body,
-                      {new: true}
+                      {new: true},
+                      // {runValidators: true}
                 )
               
                 res.status(200).json({

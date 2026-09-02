@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Components/Loading";
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
   const [data, setData] = useState({
     email: "",
@@ -27,6 +29,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      setLoading(true)
 
       setError("");
       setFeedback("");
@@ -54,9 +57,15 @@ const Login = () => {
         error.response?.data?.message || "Invalid email or password"
       );
 
+    } finally{
+      setLoading(false)
     }
   };
 
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-5">

@@ -3,10 +3,12 @@ import Button from "../../Components/Button";
 import Reveal from "../../Components/Reveal";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loading from "../../Components/Loading";
 
 const HouseCard = () => {
 
   const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
 
@@ -14,6 +16,7 @@ const HouseCard = () => {
 
       try {
 
+        setLoading(true)
         const response = await axios.get(
           "https://real-estate-qtye.onrender.com/api/Router"
         );
@@ -26,6 +29,8 @@ const HouseCard = () => {
 
         console.log("ERROR:", error);
 
+      } finally{
+        setLoading(false)
       }
 
     };
@@ -33,6 +38,10 @@ const HouseCard = () => {
     getProperties();
 
   }, []);
+  
+   if (loading) {
+    return <Loading />
+  }
 
 
   return (
