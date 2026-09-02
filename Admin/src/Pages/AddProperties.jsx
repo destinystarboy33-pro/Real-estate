@@ -70,6 +70,7 @@ const AddProperties = () => {
     });
 
     setImage(null);
+    setShowMessage(true)
 
   } catch (error) {
 
