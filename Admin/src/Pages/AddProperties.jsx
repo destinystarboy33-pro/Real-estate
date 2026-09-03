@@ -10,15 +10,15 @@ const AddProperties = () => {
   const [errorMessage, setErrorMessage] = useState(false)
     const [image, setImage] = useState(null)
     const [data, setData] = useState({
-        
-        name: '',
-        views: '',
-        location: '',
-        price: '',
-        oldPrice: '',
-        description: '',
-        distance: ''
-    })
+    name: '',
+    views: '',
+    location: '',
+    propertyType: '',
+    price: '',
+    oldPrice: '',
+    description: '',
+    distance: ''
+})
 
 
 
@@ -48,6 +48,7 @@ const AddProperties = () => {
     formData.append("name", data.name);
     formData.append("views", data.views);
     formData.append("location", data.location);
+    formData.append('propertyType', data.propertyType);
     formData.append("price", data.price);
      formData.append("oldPrice", data.oldPrice);
      formData.append('description', data.description)
@@ -240,6 +241,30 @@ const AddProperties = () => {
               required
             />
           </div>
+
+
+          {/* Property Type */}
+<div>
+  <label className="mb-2 block font-semibold text-gray-700">
+    Property Type
+  </label>
+
+  <select
+    name="propertyType"
+    value={data.propertyType}
+    onChange={handlechange}
+    className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+    required
+  >
+    <option value="">Select property type</option>
+    <option value="House">House</option>
+    <option value="Land">Land</option>
+    <option value="Office">Office</option>
+    <option value="Hotel">Hotel</option>
+    <option value="Commercial Building">Commercial Building</option>
+    <option value="Estate">Estate</option>
+  </select>
+</div>
 
 
           {/* Price */}

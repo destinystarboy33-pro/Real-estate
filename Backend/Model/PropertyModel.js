@@ -17,10 +17,16 @@ const propertySchema = new mongoose.Schema({
         required:true
     },
 
+    propertyType: {
+    type: String,
+    required: true
+    },
+
     views:{
         type:Number,
         required: true,
     },
+   
 
     price :{
        type: Number,
@@ -40,7 +46,8 @@ const propertySchema = new mongoose.Schema({
     distance:{
         type: Number,
         required: false
-    }
+    },
+
 
 
 

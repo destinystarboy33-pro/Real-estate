@@ -6,16 +6,29 @@ import cloudinary from "../config/cloudinary.js"
 const getproperties = async (req, res) => {
   try {
 
-    const { name, location, minPrice, maxPrice } = req.query;
+    const { name, location, minPrice, maxPrice, propertyType } = req.query;
 
     let filter = {};
 
     if (name) {
-      filter.name = { $regex: name, $options: "i" };
+      filter.name = {
+        $regex: name,
+        $options: "i"
+      };
     }
 
     if (location) {
-      filter.location = { $regex: location, $options: "i" };
+      filter.location = {
+        $regex: location,
+        $options: "i"
+      };
+    }
+
+    if (propertyType) {
+      filter.propertyType = {
+        $regex: propertyType,
+        $options: "i"
+      };
     }
 
     if (minPrice || maxPrice) {
