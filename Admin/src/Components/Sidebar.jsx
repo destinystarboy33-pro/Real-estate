@@ -79,10 +79,13 @@ const Sidebar = () => {
               </button>
               </NavLink>
 
+              <NavLink to={'/Search'}>
+
               <button className="flex w-full items-center gap-4 rounded-lg p-3 text-left hover:bg-blue-100">
                 <i className="fa-solid fa-magnifying-glass text-blue-700"></i>
                 Search Property
               </button>
+              </NavLink>
 
               <button className="flex w-full items-center gap-4 rounded-lg p-3 text-left hover:bg-blue-100">
                 <i className="fa-solid fa-envelope text-blue-700"></i>
