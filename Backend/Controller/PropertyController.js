@@ -63,6 +63,7 @@ const CreateProperty = async (req, res) => {
     const {
       name,
       location,
+       propertyType,
       views,
       price,
       oldPrice,
@@ -93,6 +94,7 @@ const CreateProperty = async (req, res) => {
       image,
       name,
       location,
+      propertyType,
       views,
       price,
       oldPrice,
