@@ -8,7 +8,7 @@ import EditProperty from "./Pages/EditProperty";
 import ForgotPassword from "./Pages/ForgotPassword";
 import VerifyResetCode from "./Pages/VerifyResetCode";
 import ResetPassword from "./Pages/ResetPassword";
-import Search from "./Pages/Search";
+// import Search from "./Pages/Search";
 // import './App.css'
 // import Sidebar from './Components/Sidebar'
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/AddProperties" element={<ProtectedRoute><AddProperties /> </ProtectedRoute>}></Route>
         <Route path="/AllProperties" element={<ProtectedRoute><AllProperties /></ProtectedRoute>}></Route>
         <Route path="/properties/edit/:id" element={<ProtectedRoute><EditProperty /></ProtectedRoute>}></Route>
-        <Route path="/Search" element={<ProtectedRoute><Search /></ProtectedRoute>}></Route>
+        {/* <Route path="/Search" element={<ProtectedRoute><Search /></ProtectedRoute>}></Route> */}
 
 
       </Routes>
