@@ -188,6 +188,11 @@ const Search = () => {
 
   };
 
+  
+  if (loading) {
+    return <Loading />;
+  }
+
 
   return (
 

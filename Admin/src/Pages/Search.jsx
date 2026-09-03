@@ -1,548 +1,548 @@
-import axios from "axios";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import axios from "axios";
+// import { useState } from "react";
+// import { NavLink } from "react-router-dom";
 
-const Search = () => {
+// const Search = () => {
 
-  const [showFilter, setShowFilter] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("");
+//   const [showFilter, setShowFilter] = useState(false);
+//   const [activeFilter, setActiveFilter] = useState("");
 
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+//   const [name, setName] = useState("");
+//   const [location, setLocation] = useState("");
+//   const [minPrice, setMinPrice] = useState("");
+//   const [maxPrice, setMaxPrice] = useState("");
 
-  const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(false);
+//   const [properties, setProperties] = useState([]);
+//   const [loading, setLoading] = useState(false);
 
-  const propertyTypes = [
-    "House",
-    "Land",
-    "Office",
-    "Hotel",
-    "Commercial Building",
-    "Estate"
-  ];
+//   const propertyTypes = [
+//     "House",
+//     "Land",
+//     "Office",
+//     "Hotel",
+//     "Commercial Building",
+//     "Estate"
+//   ];
 
 
-  // SEARCH PROPERTIES
-  const searchProperties = async (filter, value = "") => {
+//   // SEARCH PROPERTIES
+//   const searchProperties = async (filter, value = "") => {
 
-    try {
+//     try {
 
-      setLoading(true);
+//       setLoading(true);
 
-      let url = "https://real-estate-qtye.onrender.com/api/Router?";
+//       let url = "https://real-estate-qtye.onrender.com/api/Router?";
 
-      if (filter === "name" && value.trim()) {
-        url += `name=${encodeURIComponent(value)}`;
-      }
+//       if (filter === "name" && value.trim()) {
+//         url += `name=${encodeURIComponent(value)}`;
+//       }
 
-      if (filter === "location" && value.trim()) {
-        url += `location=${encodeURIComponent(value)}`;
-      }
+//       if (filter === "location" && value.trim()) {
+//         url += `location=${encodeURIComponent(value)}`;
+//       }
 
-      if (filter === "price") {
+//       if (filter === "price") {
 
-        const params = [];
+//         const params = [];
 
-        if (minPrice) {
-          params.push(`minPrice=${encodeURIComponent(minPrice)}`);
-        }
+//         if (minPrice) {
+//           params.push(`minPrice=${encodeURIComponent(minPrice)}`);
+//         }
 
-        if (maxPrice) {
-          params.push(`maxPrice=${encodeURIComponent(maxPrice)}`);
-        }
+//         if (maxPrice) {
+//           params.push(`maxPrice=${encodeURIComponent(maxPrice)}`);
+//         }
 
-        url += params.join("&");
-      }
+//         url += params.join("&");
+//       }
 
-      if (filter === "propertyType") {
-        url += `propertyType=${encodeURIComponent(value)}`;
-      }
+//       if (filter === "propertyType") {
+//         url += `propertyType=${encodeURIComponent(value)}`;
+//       }
 
-      const response = await axios.get(url);
+//       const response = await axios.get(url);
 
-      setProperties(response.data);
+//       setProperties(response.data);
 
-    } catch (error) {
+//     } catch (error) {
 
-      console.log(error);
+//       console.log(error);
 
-    } finally {
+//     } finally {
 
-      setLoading(false);
+//       setLoading(false);
 
-    }
+//     }
 
-  };
+//   };
 
 
-  // MAIN SEARCH
-  const handleMainSearch = () => {
+//   // MAIN SEARCH
+//   const handleMainSearch = () => {
 
-    if (!name.trim()) {
-      return;
-    }
+//     if (!name.trim()) {
+//       return;
+//     }
 
-    searchProperties("name", name);
+//     searchProperties("name", name);
 
-  };
+//   };
 
 
-  // PROPERTY TYPE
-  const handlePropertyType = (type) => {
+//   // PROPERTY TYPE
+//   const handlePropertyType = (type) => {
 
-    searchProperties("propertyType", type);
+//     searchProperties("propertyType", type);
 
-  };
+//   };
 
 
-  // CLEAR FILTERS
-  const clearFilters = () => {
+//   // CLEAR FILTERS
+//   const clearFilters = () => {
 
-    setName("");
-    setLocation("");
-    setMinPrice("");
-    setMaxPrice("");
-    setActiveFilter("");
+//     setName("");
+//     setLocation("");
+//     setMinPrice("");
+//     setMaxPrice("");
+//     setActiveFilter("");
 
-    setProperties([]);
+//     setProperties([]);
 
-  };
+//   };
 
 
-  return (
+//   return (
 
-    <div className="min-h-screen bg-gray-100 px-5 py-10">
+//     <div className="min-h-screen bg-gray-100 px-5 py-10">
 
-      <div className="mx-auto max-w-6xl">
+//       <div className="mx-auto max-w-6xl">
 
 
-        {/* PAGE TITLE */}
+//         {/* PAGE TITLE */}
 
-        <h1 className="mb-6 text-3xl font-bold text-blue-700">
-          Search Properties
-        </h1>
+//         <h1 className="mb-6 text-3xl font-bold text-blue-700">
+//           Search Properties
+//         </h1>
 
 
-        {/* MAIN SEARCH BAR */}
+//         {/* MAIN SEARCH BAR */}
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+//         <div className="flex flex-col gap-3 sm:flex-row">
 
-          <div className="relative flex-1">
+//           <div className="relative flex-1">
 
-            <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+//             <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleMainSearch();
-                }
-              }}
-              placeholder="Search property..."
-              className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-11 pr-4 outline-none focus:border-blue-600"
-            />
+//             <input
+//               type="text"
+//               value={name}
+//               onChange={(e) => setName(e.target.value)}
+//               onKeyDown={(e) => {
+//                 if (e.key === "Enter") {
+//                   handleMainSearch();
+//                 }
+//               }}
+//               placeholder="Search property..."
+//               className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-11 pr-4 outline-none focus:border-blue-600"
+//             />
 
-          </div>
+//           </div>
 
 
-          <button
-            onClick={handleMainSearch}
-            className="rounded-lg bg-blue-700 px-7 py-3 font-semibold text-white transition hover:bg-blue-800"
-          >
+//           <button
+//             onClick={handleMainSearch}
+//             className="rounded-lg bg-blue-700 px-7 py-3 font-semibold text-white transition hover:bg-blue-800"
+//           >
 
-            <i className="fa-solid fa-magnifying-glass mr-2"></i>
+//             <i className="fa-solid fa-magnifying-glass mr-2"></i>
 
-            Search
+//             Search
 
-          </button>
+//           </button>
 
-        </div>
+//         </div>
 
 
-        {/* FILTER BUTTON */}
+//         {/* FILTER BUTTON */}
 
-        <button
-          onClick={() => {
+//         <button
+//           onClick={() => {
 
-            setShowFilter(!showFilter);
+//             setShowFilter(!showFilter);
 
-            setActiveFilter("");
+//             setActiveFilter("");
 
-          }}
-          className="mt-5 flex items-center gap-2 rounded-lg border border-blue-700 bg-white px-5 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
-        >
+//           }}
+//           className="mt-5 flex items-center gap-2 rounded-lg border border-blue-700 bg-white px-5 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
+//         >
 
-          <i className="fa-solid fa-filter"></i>
+//           <i className="fa-solid fa-filter"></i>
 
-          Filter
+//           Filter
 
-          <i
-            className={`fa-solid fa-chevron-${
-              showFilter ? "up" : "down"
-            }`}
-          ></i>
+//           <i
+//             className={`fa-solid fa-chevron-${
+//               showFilter ? "up" : "down"
+//             }`}
+//           ></i>
 
-        </button>
+//         </button>
 
 
-        {/* FILTER MENU */}
+//         {/* FILTER MENU */}
 
-        {showFilter && (
+//         {showFilter && (
 
-          <div className="mt-5 w-full max-w-md rounded-xl bg-white p-5 shadow-md">
+//           <div className="mt-5 w-full max-w-md rounded-xl bg-white p-5 shadow-md">
 
-            <div className="mb-5 flex items-center justify-between">
+//             <div className="mb-5 flex items-center justify-between">
 
-              <h2 className="text-xl font-bold text-gray-800">
-                Filter By
-              </h2>
+//               <h2 className="text-xl font-bold text-gray-800">
+//                 Filter By
+//               </h2>
 
-              <button
-                onClick={clearFilters}
-                className="text-sm font-semibold text-red-500 hover:text-red-700"
-              >
-                Clear
-              </button>
+//               <button
+//                 onClick={clearFilters}
+//                 className="text-sm font-semibold text-red-500 hover:text-red-700"
+//               >
+//                 Clear
+//               </button>
 
-            </div>
+//             </div>
 
 
-            {/* NAME */}
+//             {/* NAME */}
 
-            <button
-              onClick={() => setActiveFilter("name")}
-              className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
-            >
+//             <button
+//               onClick={() => setActiveFilter("name")}
+//               className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
+//             >
 
-              <span>
+//               <span>
 
-                <i className="fa-solid fa-house mr-3 text-blue-700"></i>
+//                 <i className="fa-solid fa-house mr-3 text-blue-700"></i>
 
-                Filter by Name
+//                 Filter by Name
 
-              </span>
+//               </span>
 
-              <i className="fa-solid fa-chevron-right"></i>
+//               <i className="fa-solid fa-chevron-right"></i>
 
-            </button>
+//             </button>
 
 
-            {/* LOCATION */}
+//             {/* LOCATION */}
 
-            <button
-              onClick={() => setActiveFilter("location")}
-              className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
-            >
+//             <button
+//               onClick={() => setActiveFilter("location")}
+//               className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
+//             >
 
-              <span>
+//               <span>
 
-                <i className="fa-solid fa-location-dot mr-3 text-blue-700"></i>
+//                 <i className="fa-solid fa-location-dot mr-3 text-blue-700"></i>
 
-                Filter by Location
+//                 Filter by Location
 
-              </span>
+//               </span>
 
-              <i className="fa-solid fa-chevron-right"></i>
+//               <i className="fa-solid fa-chevron-right"></i>
 
-            </button>
+//             </button>
 
 
-            {/* PRICE */}
+//             {/* PRICE */}
 
-            <button
-              onClick={() => setActiveFilter("price")}
-              className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
-            >
+//             <button
+//               onClick={() => setActiveFilter("price")}
+//               className="mb-3 flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
+//             >
 
-              <span>
+//               <span>
 
-                <i className="fa-solid fa-money-bill mr-3 text-blue-700"></i>
+//                 <i className="fa-solid fa-money-bill mr-3 text-blue-700"></i>
 
-                Filter by Price
+//                 Filter by Price
 
-              </span>
+//               </span>
 
-              <i className="fa-solid fa-chevron-right"></i>
+//               <i className="fa-solid fa-chevron-right"></i>
 
-            </button>
+//             </button>
 
 
-            {/* PROPERTY TYPE */}
+//             {/* PROPERTY TYPE */}
 
-            <button
-              onClick={() => setActiveFilter("propertyType")}
-              className="flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
-            >
+//             <button
+//               onClick={() => setActiveFilter("propertyType")}
+//               className="flex w-full items-center justify-between rounded-lg border border-gray-200 p-4 text-left font-semibold transition hover:bg-blue-50"
+//             >
 
-              <span>
+//               <span>
 
-                <i className="fa-solid fa-building mr-3 text-blue-700"></i>
+//                 <i className="fa-solid fa-building mr-3 text-blue-700"></i>
 
-                Property Type
+//                 Property Type
 
-              </span>
+//               </span>
 
-              <i className="fa-solid fa-chevron-right"></i>
+//               <i className="fa-solid fa-chevron-right"></i>
 
-            </button>
+//             </button>
 
 
-            {/* NAME INPUT */}
+//             {/* NAME INPUT */}
 
-            {activeFilter === "name" && (
+//             {activeFilter === "name" && (
 
-              <div className="mt-5 border-t pt-5">
+//               <div className="mt-5 border-t pt-5">
 
-                <label className="mb-2 block font-semibold text-gray-700">
-                  Property Name
-                </label>
+//                 <label className="mb-2 block font-semibold text-gray-700">
+//                   Property Name
+//                 </label>
 
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter property name"
-                  className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-                />
+//                 <input
+//                   type="text"
+//                   value={name}
+//                   onChange={(e) => setName(e.target.value)}
+//                   placeholder="Enter property name"
+//                   className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+//                 />
 
-                <button
-                  onClick={() => searchProperties("name", name)}
-                  className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
-                >
-                  Search
-                </button>
+//                 <button
+//                   onClick={() => searchProperties("name", name)}
+//                   className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
+//                 >
+//                   Search
+//                 </button>
 
-              </div>
+//               </div>
 
-            )}
+//             )}
 
 
-            {/* LOCATION INPUT */}
+//             {/* LOCATION INPUT */}
 
-            {activeFilter === "location" && (
+//             {activeFilter === "location" && (
 
-              <div className="mt-5 border-t pt-5">
+//               <div className="mt-5 border-t pt-5">
 
-                <label className="mb-2 block font-semibold text-gray-700">
-                  Location
-                </label>
+//                 <label className="mb-2 block font-semibold text-gray-700">
+//                   Location
+//                 </label>
 
-                <input
-                  type="text"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  placeholder="Enter location"
-                  className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-                />
+//                 <input
+//                   type="text"
+//                   value={location}
+//                   onChange={(e) => setLocation(e.target.value)}
+//                   placeholder="Enter location"
+//                   className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+//                 />
 
-                <button
-                  onClick={() => searchProperties("location", location)}
-                  className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
-                >
-                  Search
-                </button>
+//                 <button
+//                   onClick={() => searchProperties("location", location)}
+//                   className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
+//                 >
+//                   Search
+//                 </button>
 
-              </div>
+//               </div>
 
-            )}
+//             )}
 
 
-            {/* PRICE INPUT */}
+//             {/* PRICE INPUT */}
 
-            {activeFilter === "price" && (
+//             {activeFilter === "price" && (
 
-              <div className="mt-5 border-t pt-5">
+//               <div className="mt-5 border-t pt-5">
 
-                <label className="mb-2 block font-semibold text-gray-700">
-                  Minimum Price
-                </label>
+//                 <label className="mb-2 block font-semibold text-gray-700">
+//                   Minimum Price
+//                 </label>
 
-                <input
-                  type="number"
-                  value={minPrice}
-                  onChange={(e) => setMinPrice(e.target.value)}
-                  placeholder="Minimum price"
-                  min="0"
-                  className="mb-3 w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-                />
+//                 <input
+//                   type="number"
+//                   value={minPrice}
+//                   onChange={(e) => setMinPrice(e.target.value)}
+//                   placeholder="Minimum price"
+//                   min="0"
+//                   className="mb-3 w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+//                 />
 
 
-                <label className="mb-2 block font-semibold text-gray-700">
-                  Maximum Price
-                </label>
+//                 <label className="mb-2 block font-semibold text-gray-700">
+//                   Maximum Price
+//                 </label>
 
-                <input
-                  type="number"
-                  value={maxPrice}
-                  onChange={(e) => setMaxPrice(e.target.value)}
-                  placeholder="Maximum price"
-                  min="0"
-                  className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-                />
+//                 <input
+//                   type="number"
+//                   value={maxPrice}
+//                   onChange={(e) => setMaxPrice(e.target.value)}
+//                   placeholder="Maximum price"
+//                   min="0"
+//                   className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
+//                 />
 
 
-                <button
-                  onClick={() => searchProperties("price")}
-                  className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
-                >
-                  Search
-                </button>
+//                 <button
+//                   onClick={() => searchProperties("price")}
+//                   className="mt-3 w-full rounded-lg bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800"
+//                 >
+//                   Search
+//                 </button>
 
-              </div>
+//               </div>
 
-            )}
+//             )}
 
 
-            {/* PROPERTY TYPE OPTIONS */}
+//             {/* PROPERTY TYPE OPTIONS */}
 
-            {activeFilter === "propertyType" && (
+//             {activeFilter === "propertyType" && (
 
-              <div className="mt-5 border-t pt-5">
+//               <div className="mt-5 border-t pt-5">
 
-                <p className="mb-3 font-semibold text-gray-700">
-                  Select Property Type
-                </p>
+//                 <p className="mb-3 font-semibold text-gray-700">
+//                   Select Property Type
+//                 </p>
 
-                <div className="space-y-2">
+//                 <div className="space-y-2">
 
-                  {propertyTypes.map((type) => (
+//                   {propertyTypes.map((type) => (
 
-                    <button
-                      key={type}
-                      onClick={() => handlePropertyType(type)}
-                      className="flex w-full items-center justify-between rounded-lg border border-gray-200 p-3 text-left transition hover:bg-blue-50"
-                    >
+//                     <button
+//                       key={type}
+//                       onClick={() => handlePropertyType(type)}
+//                       className="flex w-full items-center justify-between rounded-lg border border-gray-200 p-3 text-left transition hover:bg-blue-50"
+//                     >
 
-                      <span>{type}</span>
+//                       <span>{type}</span>
 
-                      <i className="fa-solid fa-chevron-right text-gray-400"></i>
+//                       <i className="fa-solid fa-chevron-right text-gray-400"></i>
 
-                    </button>
+//                     </button>
 
-                  ))}
+//                   ))}
 
-                </div>
+//                 </div>
 
-              </div>
+//               </div>
 
-            )}
+//             )}
 
-          </div>
+//           </div>
 
-        )}
+//         )}
 
 
-        {/* SEARCH RESULTS */}
+//         {/* SEARCH RESULTS */}
 
-        <div className="mt-10">
+//         <div className="mt-10">
 
-          <h2 className="mb-5 text-2xl font-bold text-gray-800">
-            Search Results
-          </h2>
+//           <h2 className="mb-5 text-2xl font-bold text-gray-800">
+//             Search Results
+//           </h2>
 
 
-          {/* LOADING */}
+//           {/* LOADING */}
 
-          {loading && (
+//           {loading && (
 
-            <div className="py-10 text-center">
+//             <div className="py-10 text-center">
 
-              <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-blue-700 border-t-transparent"></div>
+//               <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-blue-700 border-t-transparent"></div>
 
-              <p className="mt-3 text-gray-500">
-                Loading properties...
-              </p>
+//               <p className="mt-3 text-gray-500">
+//                 Loading properties...
+//               </p>
 
-            </div>
+//             </div>
 
-          )}
+//           )}
 
 
-          {/* NO RESULTS */}
+//           {/* NO RESULTS */}
 
-          {!loading && properties.length === 0 && (
+//           {!loading && properties.length === 0 && (
 
-            <div className="rounded-xl bg-white p-10 text-center shadow-sm">
+//             <div className="rounded-xl bg-white p-10 text-center shadow-sm">
 
-              <i className="fa-solid fa-house mb-3 text-4xl text-gray-300"></i>
+//               <i className="fa-solid fa-house mb-3 text-4xl text-gray-300"></i>
 
-              <p className="text-gray-500">
-                No properties found.
-              </p>
+//               <p className="text-gray-500">
+//                 No properties found.
+//               </p>
 
-            </div>
+//             </div>
 
-          )}
+//           )}
 
 
-          {/* PROPERTY RESULTS */}
+//           {/* PROPERTY RESULTS */}
 
-          {!loading && properties.length > 0 && (
+//           {!loading && properties.length > 0 && (
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+//             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-              {properties.map((property) => (
+//               {properties.map((property) => (
 
-                <NavLink
-                  key={property._id}
-                  to={`/house/${property._id}`}
-                  className="overflow-hidden rounded-xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg"
-                >
+//                 <NavLink
+//                   key={property._id}
+//                   to={`/house/${property._id}`}
+//                   className="overflow-hidden rounded-xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg"
+//                 >
 
-                  <img
-                    src={property.image}
-                    alt={property.name}
-                    className="h-52 w-full object-cover"
-                  />
+//                   <img
+//                     src={property.image}
+//                     alt={property.name}
+//                     className="h-52 w-full object-cover"
+//                   />
 
 
-                  <div className="p-5">
+//                   <div className="p-5">
 
-                    <h3 className="text-xl font-bold text-gray-800">
-                      {property.name}
-                    </h3>
+//                     <h3 className="text-xl font-bold text-gray-800">
+//                       {property.name}
+//                     </h3>
 
 
-                    <p className="mt-2 text-gray-500">
+//                     <p className="mt-2 text-gray-500">
 
-                      <i className="fa-solid fa-location-dot mr-2"></i>
+//                       <i className="fa-solid fa-location-dot mr-2"></i>
 
-                      {property.location}
+//                       {property.location}
 
-                    </p>
+//                     </p>
 
 
-                    <p className="mt-2 text-lg font-bold text-blue-700">
-                      ₦{Number(property.price).toLocaleString()}
-                    </p>
+//                     <p className="mt-2 text-lg font-bold text-blue-700">
+//                       ₦{Number(property.price).toLocaleString()}
+//                     </p>
 
 
-                    <p className="mt-1 text-sm text-gray-500">
-                      {property.propertyType}
-                    </p>
+//                     <p className="mt-1 text-sm text-gray-500">
+//                       {property.propertyType}
+//                     </p>
 
-                  </div>
+//                   </div>
 
-                </NavLink>
+//                 </NavLink>
 
-              ))}
+//               ))}
 
-            </div>
+//             </div>
 
-          )}
+//           )}
 
-        </div>
+//         </div>
 
-      </div>
+//       </div>
 
-    </div>
+//     </div>
 
-  );
-};
+//   );
+// };
 
-export default Search;
+// export default Search;
