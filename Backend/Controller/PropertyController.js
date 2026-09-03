@@ -3,19 +3,46 @@ import cloudinary from "../config/cloudinary.js"
 
                 // GET PROPERTIES
 
-const getproperties = async(req, res) =>{
-try{
-    const properties = await Property.find()
+const getproperties = async (req, res) => {
+  try {
 
-  res.status(200).json(properties)
+    const { name, location, minPrice, maxPrice } = req.query;
 
-} catch(error){
+    let filter = {};
 
-res.status(500).json({
-    message: 'failed', error: error.message
-})
-}
-}
+    if (name) {
+      filter.name = { $regex: name, $options: "i" };
+    }
+
+    if (location) {
+      filter.location = { $regex: location, $options: "i" };
+    }
+
+    if (minPrice || maxPrice) {
+      filter.price = {};
+
+      if (minPrice) {
+        filter.price.$gte = Number(minPrice);
+      }
+
+      if (maxPrice) {
+        filter.price.$lte = Number(maxPrice);
+      }
+    }
+
+    const properties = await Property.find(filter);
+
+    res.status(200).json(properties);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: "failed",
+      error: error.message
+    });
+
+  }
+};
 
                         // CREATE PROPERTIES
 const CreateProperty = async (req, res) => {
