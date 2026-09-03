@@ -73,6 +73,7 @@ const AddProperties = () => {
       name: "",
       views: "",
       location: "",
+       propertyType: '',
       price: "",
       oldPrice: "",
        description: '',
