@@ -10,7 +10,7 @@ const ApartmentData = [
 
     {
          id: 2,
-      name: 'Offices',
+      name: 'Office',
     icon: 'fa-solid fa-building-columns', 
     Properties: '42 Properties'
    
@@ -34,7 +34,7 @@ const ApartmentData = [
 
     {
          id: 5,
-      name: 'Commercial Buildings',
+      name: 'Commercial Building',
     icon: 'fa-solid fa-building-columns', 
     Properties: '28 Properties'
    

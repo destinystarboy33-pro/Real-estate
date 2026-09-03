@@ -6,35 +6,49 @@ import BackBtn from "../Components/BackBtn";
 
 const EditProperty = () => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
   const [image, setImage] = useState(null);
-  const [showMessage, setShowMessage] = useState(false)
+
+  const [showMessage, setShowMessage] = useState(false);
 
   const [data, setData] = useState({
     name: "",
     views: "",
     location: "",
+    propertyType: "",
     price: "",
     oldPrice: "",
-     description: '',
-        distance: ''
-
+    description: "",
+    distance: ""
   });
 
   const [loading, setLoading] = useState(false);
-//   const [message, setMessage] = useState("");
 
 
-  // GET THE EXISTING PROPERTY
+  const propertyTypes = [
+    "House",
+    "Land",
+    "Office",
+    "Hotel",
+    "Commercial Building",
+    "Estate"
+  ];
+
+
+  // =========================
+  // GET EXISTING PROPERTY
+  // =========================
+
   useEffect(() => {
 
     const getProperty = async () => {
 
       try {
-        setLoading(true)
+
+        setLoading(true);
 
         const response = await axios.get(
           `https://real-estate-qtye.onrender.com/api/Router/${id}`
@@ -46,6 +60,7 @@ const EditProperty = () => {
           name: property.name,
           views: property.views,
           location: property.location,
+          propertyType: property.propertyType,
           price: property.price,
           oldPrice: property.oldPrice,
           description: property.description,
@@ -61,6 +76,7 @@ const EditProperty = () => {
         setLoading(false);
 
       }
+
     };
 
     getProperty();
@@ -68,7 +84,10 @@ const EditProperty = () => {
   }, [id]);
 
 
+  // =========================
   // HANDLE INPUTS
+  // =========================
+
   const handlechange = (e) => {
 
     setData({
@@ -79,29 +98,41 @@ const EditProperty = () => {
   };
 
 
+  // =========================
   // SUBMIT EDIT
+  // =========================
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
 
     try {
 
-      setLoading(true)
+      setLoading(true);
 
       const formData = new FormData();
 
       formData.append("name", data.name);
+
       formData.append("views", data.views);
+
       formData.append("location", data.location);
+
+      formData.append("propertyType", data.propertyType);
+
       formData.append("price", data.price);
-      formData.append("oldPrice", data.oldPrice)
-       formData.append('description', data.description)
-     formData.append('distance', data.distance)
+
+      formData.append("oldPrice", data.oldPrice);
+
+      formData.append("description", data.description);
+
+      formData.append("distance", data.distance);
 
 
       if (image) {
         formData.append("image", image);
       }
+
 
       const token = localStorage.getItem("token");
 
@@ -123,59 +154,82 @@ const EditProperty = () => {
 
       console.log(error);
 
-    } finally{
-      setLoading(false)
+    } finally {
+
+      setLoading(false);
+
     }
 
   };
 
-if (loading) {
-    return <Loading />
+
+  if (loading) {
+    return <Loading />;
   }
 
 
   return (
 
     <div className="min-h-screen bg-gray-100 px-5 py-10 md:px-10">
+
       <BackBtn />
 
 
-{showMessage && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-5">
+      {/* =========================
+          SUCCESS POPUP
+      ========================= */}
 
-    <div className="relative w-full max-w-md rounded-xl bg-white p-8 text-center shadow-2xl">
+      {showMessage && (
 
-      <button
-        onClick={() => setShowMessage(false)}
-        className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
-      >
-        <i className="fa-solid fa-xmark"></i>
-      </button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-5">
 
-      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
-        <i className="fa-solid fa-check text-2xl text-green-600"></i>
-      </div>
+          <div className="relative w-full max-w-md rounded-xl bg-white p-8 text-center shadow-2xl">
 
-      <h2 className="text-2xl font-bold text-gray-800">
-        Success!
-      </h2>
 
-      <p className="mt-2 text-gray-500">
-        Property updated successfully.
-      </p>
+            <button
+              onClick={() => setShowMessage(false)}
+              className="absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black"
+            >
 
-      <button
-        onClick={() => navigate("/AllProperties/")}
-        className="mt-6 rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800 cursor-pointer"
-      >
-        Back to All Properties
-      </button>
+              <i className="fa-solid fa-xmark"></i>
 
-    </div>
+            </button>
 
-  </div>
-)}
 
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+
+              <i className="fa-solid fa-check text-2xl text-green-600"></i>
+
+            </div>
+
+
+            <h2 className="text-2xl font-bold text-gray-800">
+              Success!
+            </h2>
+
+
+            <p className="mt-2 text-gray-500">
+              Property updated successfully.
+            </p>
+
+
+            <button
+              onClick={() => navigate("/AllProperties/")}
+              className="mt-6 rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800 cursor-pointer"
+            >
+              Back to All Properties
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* =========================
+          FORM
+      ========================= */}
 
       <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 shadow-md md:p-8">
 
@@ -183,22 +237,17 @@ if (loading) {
           Edit Property
         </h1>
 
+
         <p className="mt-2 text-gray-500">
           Update the property information below.
         </p>
-
-
-        {/* {message && (
-          <p className="mt-5 text-center font-semibold text-green-600">
-            {message}
-          </p>
-        )} */}
 
 
         <form
           onSubmit={handleSubmit}
           className="mt-8 space-y-6"
         >
+
 
           {/* IMAGE */}
 
@@ -282,6 +331,42 @@ if (loading) {
           </div>
 
 
+          {/* PROPERTY TYPE */}
+
+          <div>
+
+            <label className="mb-2 block font-semibold text-gray-700">
+              Property Type
+            </label>
+
+            <select
+              name="propertyType"
+              value={data.propertyType}
+              onChange={handlechange}
+              className="w-full rounded-lg border border-gray-300 bg-white p-3 outline-none focus:border-blue-600"
+              required
+            >
+
+              <option value="">
+                Select property type
+              </option>
+
+              {propertyTypes.map((type) => (
+
+                <option
+                  key={type}
+                  value={type}
+                >
+                  {type}
+                </option>
+
+              ))}
+
+            </select>
+
+          </div>
+
+
           {/* PRICE */}
 
           <div>
@@ -304,7 +389,7 @@ if (loading) {
           </div>
 
 
-           {/* oldPRICE */}
+          {/* OLD PRICE */}
 
           <div>
 
@@ -325,7 +410,11 @@ if (loading) {
 
           </div>
 
-           <div>
+
+          {/* DESCRIPTION */}
+
+          <div>
+
             <label className="mb-2 block font-semibold text-gray-700">
               Property Description
             </label>
@@ -339,9 +428,14 @@ if (loading) {
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
               required
             />
+
           </div>
 
-           <div>
+
+          {/* DISTANCE */}
+
+          <div>
+
             <label className="mb-2 block font-semibold text-gray-700">
               Distance from Junction
             </label>
@@ -349,16 +443,17 @@ if (loading) {
             <input
               type="number"
               value={data.distance}
-              name='distance'
+              name="distance"
               onChange={handlechange}
               placeholder="Enter Distance from Junction"
               min="0"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-              
             />
+
           </div>
 
 
+          {/* SAVE */}
 
           <button
             type="submit"
@@ -372,7 +467,9 @@ if (loading) {
       </div>
 
     </div>
+
   );
+
 };
 
 export default EditProperty;
