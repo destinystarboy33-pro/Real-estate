@@ -445,7 +445,7 @@ const EditProperty = () => {
               min="0"
               placeholder="Enter property oldPrice"
               className="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-600"
-              required
+            
             />
 
           </div>
