@@ -57,9 +57,11 @@ const HouseDetails = () => {
   if (!House) {
     return (
       <div className="min-h-screen flex items-center justify-center">
+
         <p className="text-xl font-semibold text-red-500">
           Property not found.
         </p>
+
       </div>
     );
   }
@@ -67,87 +69,129 @@ const HouseDetails = () => {
 
   return (
 
-    <div className="flex flex-col md:flex-row h-fit w-full my-20 px-8">
+    <div className="min-h-screen bg-gray-100 py-10 px-4 mt-10">
 
       <BackButton />
 
 
-      {/* PROPERTY IMAGE */}
+      {/* PROPERTY CARD */}
 
-      <img
-        src={House.image}
-        alt={House.name}
-        className="w-full md:w-1/2 rounded-2xl object-cover"
-      />
+      <div className="max-w-md md:max-w-lg mx-auto bg-white rounded-3xl shadow-lg overflow-hidden mt-10">
 
 
-      {/* PROPERTY INFORMATION */}
+        {/* PROPERTY IMAGE */}
 
-      <div className="mt-10 flex flex-col gap-5 md:mr-20 md:ml-5 md:w-1/2">
+        <div className="relative">
 
-
-        {/* TAGS */}
-
-        <div className="flex gap-8 mt-10">
-
-          <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
-
-            New{" "}
-
-            <i className="fa-solid fa-fire-flame-curved bg-linear-to-t from-red-600 via-orange-500 to-yellow-300 bg-clip-text text-transparent"></i>
-
-          </p>
+          <img
+            src={House.image}
+            alt={House.name}
+            className="w-full h-64 md:h-80 object-cover"
+          />
 
 
-          <p className="text-blue-500 bg-gray-200 px-2 py-1 rounded-md">
+          {/* FEATURED BADGE */}
 
-            Featuring{" "}
+          <div className="absolute top-4 left-4">
 
-            <i className="fa-solid fa-fire bg-linear-to-t from-red-600 via-orange-500 to-yellow-300 bg-clip-text text-transparent"></i>
+            <span className="bg-white px-3 py-2 rounded-full text-blue-600 font-semibold shadow">
 
-          </p>
+              Featured
+
+            </span>
+
+          </div>
+
+
+          {/* FAVOURITE BUTTON */}
+
+          <button
+            className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow"
+          >
+
+            <i className="fa-regular fa-heart text-xl text-gray-700"></i>
+
+          </button>
 
         </div>
 
 
-        {/* PROPERTY NAME */}
+        {/* PROPERTY INFORMATION */}
 
-        <div className="mt-10 flex flex-col justify-between">
+        <div className="p-5">
 
-          <h1 className="text-5xl font-extrabold">
+
+          {/* TAGS */}
+
+          <div className="flex gap-2 flex-wrap mb-4">
+
+            <span className="bg-gray-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+
+              New{" "}
+
+              <i className="fa-solid fa-fire text-orange-500"></i>
+
+            </span>
+
+
+            <span className="bg-gray-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+
+              Special Offer{" "}
+
+              <i className="fa-solid fa-fire text-orange-500"></i>
+
+            </span>
+
+          </div>
+
+
+          {/* PROPERTY NAME */}
+
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+
             {House.name}
+
           </h1>
 
 
           {/* PROPERTY TYPE */}
 
-          <p className="text-xl font-semibold text-blue-600 mt-5">
+          <p className="text-blue-600 font-semibold mt-2">
+
             {House.propertyType}
+
           </p>
 
 
           {/* LOCATION */}
 
-          <p className="text-2xl mt-3">
-            <i className="fa-solid fa-location-dot text-blue-600 mr-2"></i>
+          <p className="text-gray-600 mt-3 text-xl">
+
+            <i className="fa-solid fa-location-dot text-red-600 mr-2"></i>
+
             {House.location}
+
           </p>
 
 
           {/* DISTANCE */}
 
           {House.distance !== undefined && (
-            <p className="text-2xl">
-              {House.distance} away from Bustop
+
+            <p className="text-gray-500 text-sm mt-1">
+
+              {House.distance}Km away from Bustop
+
             </p>
+
           )}
 
 
           {/* VIEWS */}
 
-          <p className="text-gray-600 text-xl mt-3">
+          <p className="text-gray-500 text-sm mt-3">
 
-            <i className="fa-solid fa-chart-column mr-2"></i>
+            <i className="fa-solid fa-eye mr-2"></i>
 
             {House.views?.toLocaleString()} views
 
@@ -156,54 +200,80 @@ const HouseDetails = () => {
 
           {/* PRICE */}
 
-          <div className="flex gap-4 text-2xl mt-5">
+          <div className="mt-6">
+
+            <div className="flex items-center gap-3">
+
+
+              {/* CURRENT PRICE */}
+
+              <p className="text-2xl font-extrabold text-green-600">
+
+                ${House.price.toLocaleString()}
+
+              </p>
+
+
+              {/* OLD PRICE */}
+
+              {House.oldPrice && (
+
+                <del className="text-red-600 text-lg">
+
+                  ${House.oldPrice.toLocaleString()}
+
+                </del>
+
+              )}
+
+            </div>
+
+
+            {/* OFFER MESSAGE */}
 
             {House.oldPrice && (
 
-              <del className="text-red-600 font-extrabold">
+              <p className="text-sm text-blue-600 font-medium mt-1">
 
-                ${House.oldPrice.toLocaleString()}
+                Special offer available
 
-              </del>
+              </p>
 
             )}
-
-            <p className="text-green-600 font-extrabold">
-
-              ${House.price.toLocaleString()}
-
-            </p>
 
           </div>
 
 
           {/* DESCRIPTION */}
 
-          <p className="text-3xl font-medium mt-10">
+          <p className="text-gray-600 mt-6 leading-relaxed">
 
             {House.description}
 
           </p>
 
-        </div>
+
+          {/* BUTTONS */}
+
+          <div className="flex gap-3 mt-7">
 
 
-        {/* BUTTONS */}
+            {/* VIEW DETAILS */}
 
-        <div className="flex mt-10 gap-3">
+           
 
-          <button className="bg-white text-blue-600 px-5 py-2 rounded-3xl whitespace-nowrap font-medium text-md border border-blue-600">
+            {/* BOOK NOW */}
 
-            ${House.price.toLocaleString()}
+            <button
+              className="flex-1 bg-blue-800 text-white py-3 rounded-full font-semibold hover:bg-blue-900 transition cursor-pointer"
+            >
 
-          </button>
+              Book Inspection Now
 
+            </button>
 
-          <button className="bg-blue-800 px-5 py-2 rounded-3xl whitespace-nowrap text-white font-medium text-md">
+          </div>
 
-            Book Now
-
-          </button>
 
         </div>
 
@@ -212,6 +282,7 @@ const HouseDetails = () => {
     </div>
 
   );
+
 };
 
 export default HouseDetails;

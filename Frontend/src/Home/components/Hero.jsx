@@ -5,16 +5,16 @@ import Reveal from "../../Components/Reveal";
     return (
       <Reveal>
       <div className="bg-cover bg-no-repeat bg-center w-full md:min-h-150 mt-19 md:mt-19 pt-10"
-        style={{backgroundImage: `url(${house1})`}}>
+        style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${house1})`}}>
         {/* <img
           src={house1}
           alt=""
           className="bg-cover bg-no-repeat bg-center w-full md:h-150 "
         /> */}
 
-        <div className=" max-w-150 mx-5 md:mx-30 mt-10 ">
+        <div className=" max-w-150 mx-5 md:mx-30 mt-10  ">
           <h1 className=" text-white font-bold text-4xl md:text-6xl ">
-            Finding Your New <br /> Home Is Simple
+            Finding Your New <br /><span className="text-blue-500"> Home Is Simple</span>
           </h1>
 
           <p className="text-white font-black text-xl md:text-2xl mt-10">

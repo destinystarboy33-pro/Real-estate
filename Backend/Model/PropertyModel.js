@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const propertySchema = new mongoose.Schema({
 
     image:{
@@ -48,10 +49,15 @@ const propertySchema = new mongoose.Schema({
         required: false
     },
 
+    investment: {
+  type: Boolean,
+  default: false
+}
 
 
 
-})
+
+}, {timestamps: true})
 
 const Property = mongoose.model('Property', propertySchema)
 

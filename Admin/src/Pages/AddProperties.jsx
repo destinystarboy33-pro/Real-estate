@@ -17,7 +17,8 @@ const AddProperties = () => {
     price: '',
     oldPrice: '',
     description: '',
-    distance: ''
+    distance: '',
+     investment: false
 })
 
 
@@ -53,6 +54,7 @@ const AddProperties = () => {
      formData.append("oldPrice", data.oldPrice);
      formData.append('description', data.description)
      formData.append('distance', data.distance)
+     formData.append('investment', data.investment)
 
     const token = localStorage.getItem("token");
     console.log('selected:', image)
@@ -77,7 +79,8 @@ const AddProperties = () => {
       price: "",
       oldPrice: "",
        description: '',
-        distance: ''
+        distance: '',
+        investment: false
 
     });
 
@@ -242,6 +245,42 @@ const AddProperties = () => {
               required
             />
           </div>
+
+
+          {/* Investment */}
+
+<div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+
+  <div className="flex items-center gap-3">
+
+    <input
+      type="checkbox"
+      name="investment"
+      checked={data.investment}
+      onChange={(e) =>
+        setData({
+          ...data,
+          investment: e.target.checked
+        })
+      }
+      className="h-5 w-5 cursor-pointer"
+    />
+
+    <div>
+
+      <label className="font-semibold text-gray-700 cursor-pointer">
+        Available for Investment
+      </label>
+
+      <p className="text-sm text-gray-500 mt-1">
+        Make this property available on the investment page.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
 
           {/* Property Type */}

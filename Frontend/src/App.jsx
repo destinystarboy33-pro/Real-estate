@@ -4,7 +4,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 // import Header from './Header'
 import Index from './Home/Index'
-import Services from './pages/Services'
+import Investment from './pages/Investment'
 // import Footer from './Components/Footer'
 import AllHouses from './pages/AllHouses'
 import Layout from './Layouts/Layout'
@@ -27,7 +27,7 @@ function App() {
           <Route path='/' element={<Index/>}></Route>
           <Route path= '/about' element={<About />}></Route>
           <Route path= '/Contact' element= {<Contact />}></Route>
-          <Route path='/Services' element= {<Services />}></Route>
+          <Route path='/investment' element= {<Investment />}></Route>
         <Route path='/AllHouses' element={<AllHouses />}></Route>
         <Route path='/House/:id' element={<HouseDetails  />}></Route>
         </Route>

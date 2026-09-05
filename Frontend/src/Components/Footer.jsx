@@ -1,62 +1,206 @@
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
-  const year = new Date()
-  const NewYear = year.getFullYear()
+
+  const year = new Date().getFullYear();
+
   return (
-    <div className=" bg-gray-100 mt-30 py-5 px-5">
-    
 
-    <div className="flex flex-col  gap-4 p-0" >
+    <footer className="bg-gray-800 text-white mt-30">
 
-      <div className=" flex flex-col gap-3">
+      {/* MAIN FOOTER */}
 
-        <h1 className="text-black text-2xl md:text-4xl font-bold">CloudString Properties</h1>
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-14">
 
-        <p className="text-black text-md md:text-3xl font-normal">Making the World a Conformtable <br /> Place of Living</p>
-      </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-      <div className="flex flex-col gap-3">
-        <h1  className="font-bold text-lg">Social Media</h1>
-      <div className="text-black flex gap-3 text-2xl">
-        <i className="fa-brands fa-facebook cursor-pointer text-blue-700"></i>
-        <i className="fa-brands fa-x cursor-pointer"></i>
-        <i className="fa-brands fa-instagram cursor-pointer  text-red-700"></i>
-        <i className="fa-brands fa-whatsapp cursor-pointer text-green-600"></i>
-        <i className="fa-brands fa-youtube cursor-pointer text-center text-red-600"></i>
-      </div>
-      </div>
 
+          {/* COMPANY */}
+
+          <div>
+
+            <h1 className="text-2xl md:text-3xl font-bold">
+              CloudString Properties
+            </h1>
+
+            <p className="text-gray-400 mt-4 leading-relaxed">
+              Making the world a comfortable
+              <br />
+              place to live.
+            </p>
+
+
+            {/* SOCIAL MEDIA */}
+
+            <div className="mt-6">
+
+              <h2 className="font-semibold text-lg mb-4">
+                Follow Us
+              </h2>
+
+              <div className="flex gap-4 text-xl">
+
+                <i className="fa-brands fa-facebook cursor-pointer hover:text-blue-500 transition"></i>
+
+                <i className="fa-brands fa-x-twitter cursor-pointer hover:text-gray-400 transition"></i>
+
+                <i className="fa-brands fa-instagram cursor-pointer hover:text-pink-500 transition"></i>
+
+                <i className="fa-brands fa-whatsapp cursor-pointer hover:text-green-500 transition"></i>
+
+                <i className="fa-brands fa-youtube cursor-pointer hover:text-red-500 transition"></i>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* QUICK LINKS */}
+
+          <div>
+
+            <h2 className="font-bold text-lg mb-5">
+              Quick Links
+            </h2>
+
+            <nav>
+
+              <ul className="flex flex-col gap-3 text-gray-400">
+
+                <li>
+                  <NavLink
+                    to="/"
+                    className="hover:text-white transition"
+                  >
+                    Home
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/contact"
+                    className="hover:text-white transition"
+                  >
+                    Contact
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/about"
+                    className="hover:text-white transition"
+                  >
+                    About
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/investment"
+                    className="hover:text-white transition"
+                  >
+                    Invest With Us
+                  </NavLink>
+                </li>
+
+              </ul>
+
+            </nav>
+
+          </div>
 
       
-      <div className="flex flex-col gap-3">
-        <h1 className="font-bold text-lg">Quick Links</h1>
-        <nav className="text-gray-700">
-          <ul>
-            <li><NavLink to={'/'}>Home</NavLink></li>
-            <li><NavLink to={'/Contact'}>Contact</NavLink></li>
-            <li><NavLink to={'/About'}>About</NavLink></li>
-            <li><NavLink to={'/Service'}>Service</NavLink></li>
-          </ul>
-        </nav>
-      </div>
 
 
-      <div  className="flex flex-col gap-3">
-        <h1 className="font-bold text-lg">Contact Us</h1>
-        <div className="text-gray-700 flex flex-col gap-2">
-          <p><i className="fa-solid fa-phone text-green-600 mr-3"></i><span>+6221 34490 560</span></p>
-          <p><i className="fa-solid fa-envelope text-orange-500 mr-3"></i><span>cloudstringproperties@gmail.com</span></p>
-          <p><i className="fa-solid fa-location-dot text-red-600 mr-3"></i><span>22 Fulham,London</span></p>
+          {/* CONTACT */}
+
+          <div>
+
+            <h2 className="font-bold text-lg mb-5">
+              Contact Us
+            </h2>
+
+            <div className="flex flex-col gap-4 text-gray-400">
+
+              <p className="flex items-start">
+
+                <i className="fa-solid fa-phone text-green-500 mr-3 mt-1"></i>
+
+                <span>
+                  +6221 34490 560
+                </span>
+
+              </p>
+
+
+              <p className="flex items-start">
+
+                <i className="fa-solid fa-envelope text-orange-500 mr-3 mt-1"></i>
+
+                <span className="break-all">
+                  cloudstringproperties@gmail.com
+                </span>
+
+              </p>
+
+
+              <p className="flex items-start">
+
+                <i className="fa-solid fa-location-dot text-red-500 mr-3 mt-1"></i>
+
+                <span>
+                  22 Fulham, London
+                </span>
+
+              </p>
+
+            </div>
+
+          </div>
+
         </div>
-      
+
+
+        {/* DIVIDER */}
+
+        <div className="h-px bg-gray-800 mt-12"></div>
+
+
+        {/* BOTTOM FOOTER */}
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4  pt-6 text-gray-500 text-sm">
+
+          <p className=" text-center w-full">
+            © {year} CloudString Properties. All rights reserved.
+          </p>
+
+
+          {/* <div className="flex gap-5">
+
+            <NavLink
+              to="/"
+              className="hover:text-white transition"
+            >
+              Privacy Policy
+            </NavLink>
+
+            <NavLink
+              to="/"
+              className="hover:text-white transition"
+            >
+              Terms of Service
+            </NavLink>
+
+          </div> */}
+
+        </div>
 
       </div>
-        <div className="h-0.5 bg-gray-400"></div>
-    
-      <p className="text-black text-center">&copy;{NewYear} CloudString Properties</p>
-    </div>
-    </div>
+
+    </footer>
+
   );
 };
 

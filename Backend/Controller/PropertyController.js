@@ -68,7 +68,8 @@ const CreateProperty = async (req, res) => {
       price,
       oldPrice,
        description,
-      distance
+      distance,
+      investment
     } = req.body;
 
     const result = await new Promise((resolve, reject) => {
@@ -99,7 +100,8 @@ const CreateProperty = async (req, res) => {
       price,
       oldPrice,
       description,
-      distance
+      distance,
+      investment
     });
 
     console.log("CREATE PROPERTY REACHED");
@@ -117,28 +119,92 @@ const CreateProperty = async (req, res) => {
       error: error.message
     });
   }
-};
-                        // UPDATE PROPERTIES
+};// UPDATE PROPERTY
+
+const UpdateProperty = async (req, res) => {
+  try {
+
+    const updateData = {
+      name: req.body.name,
+      views: req.body.views,
+      location: req.body.location,
+      propertyType: req.body.propertyType,
+      price: req.body.price,
+      oldPrice: req.body.oldPrice,
+      description: req.body.description,
+      distance: req.body.distance,
+      investment: req.body.investment
+    };
 
 
-          const UpdateProperty = async(req, res) =>{
-            try{
-                const property = await Property.findByIdAndUpdate
-                (req.params.id, req.body,
-                      {new: true},
-                      // {runValidators: true}
-                )
-              
-                res.status(200).json({
-                    message: 'updated'
-                })
-            } catch(error){
-                res.status(500).json({
-                    message: 'failed',
-                    error: error.message
-                })
+    // If a new image was selected
+    if (req.file) {
+
+      const result = await new Promise((resolve, reject) => {
+
+        const stream = cloudinary.uploader.upload_stream(
+          {
+            folder: "real-estate"
+          },
+
+          (error, result) => {
+
+            if (error) {
+              reject(error);
+            } else {
+              resolve(result);
             }
-          }  
+
+          }
+        );
+
+        stream.end(req.file.buffer);
+
+      });
+
+
+      // Replace old image URL
+      updateData.image = result.secure_url;
+
+    }
+
+
+    const property = await Property.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+
+
+    if (!property) {
+
+      return res.status(404).json({
+        message: "Property not found"
+      });
+
+    }
+
+
+    res.status(200).json({
+      message: "Property updated successfully",
+      property
+    });
+
+
+  } catch (error) {
+
+    console.log("UPDATE ERROR:", error);
+
+    res.status(500).json({
+      message: "Update failed",
+      error: error.message
+    });
+
+  }
+};
           
                 // DELETE PROPERTY
 

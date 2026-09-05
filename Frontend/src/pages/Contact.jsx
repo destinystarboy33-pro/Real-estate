@@ -1,66 +1,155 @@
+const Contact = () => {
+  return (
+    <div className="min-h-screen mt-20 px-5 md:px-10 py-16 flex items-center justify-center">
 
+      <div className="w-full max-w-6xl bg-gray-100 rounded-2xl shadow-lg shadow-gray-300 p-6 md:p-10">
 
- const Contact = () => {
-   return (
-     <div className="flex items-center justify-center py-10 min-h-screen md:px-10 px-5 mt-20">
-     <div className="flex flex-col  justify-center bg-gray-100 rounded-xl border-2 border-gray-100  w-full md:min-w-200 p-5 shadow-md shadow-gray-300 " >
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h1 className="font-extrabold text-3xl md:text-4xl text-gray-900">
+            Get in touch
+          </h1>
 
-        <div className="flex flex-col justify-center items-center">
-            <h1 className='font-extrabold text-2xl md:text-4xl text-black'>Get in touch</h1> 
-        <p className="text-md font-mono">We're active 24/7</p>
+          <p className="text-gray-600 mt-2">
+            We're active 24/7
+          </p>
         </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-between px-2 gap-30 md:gap-3 md:mx-20 ">
 
-        <div className="flex flex-col gap-5">
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-20">
+
+          {/* Contact Information */}
+          <div className="flex-1 flex flex-col gap-8">
+
+            <h2 className="text-2xl font-bold text-gray-900">
+              Contact Information
+            </h2>
 
 
-        <div className=" flex items-center justify-start gap-2">
-          <i className="fa-solid fa-location-dot text-red-600"></i>
-          <div className="flex flex-col">
-            <h1 className="text-xl font-semibold">Head Office</h1>
-            <p>22 Fulham, London</p>
+            {/* Address */}
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 flex items-center justify-center rounded-full bg-red-100">
+                <i className="fa-solid fa-location-dot text-red-600 text-lg"></i>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Head Office
+                </h3>
+
+                <p className="text-gray-600 mt-1">
+                  22 Fulham, London
+                </p>
+              </div>
+            </div>
+
+
+            {/* Email */}
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 flex items-center justify-center rounded-full bg-blue-100">
+                <i className="fa-solid fa-envelope text-blue-600 text-lg"></i>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Email us
+                </h3>
+
+                <p className="text-gray-600 mt-1 break-all">
+                  cloudstringproperties@gmail.com
+                </p>
+              </div>
+            </div>
+
+
+            {/* Phone */}
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 flex items-center justify-center rounded-full bg-green-100">
+                <i className="fa-solid fa-phone text-green-600 text-lg"></i>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Call us
+                </h3>
+
+                <p className="text-gray-600 mt-1">
+                  +6221 34490 560 <br />
+                  +6223 67045 450
+                </p>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        <div className=" flex items-center justify-start gap-2">
-           <i className="fa-solid fa-envelope"></i>
-          <div className="flex flex-col">
-            <h1 className="text-xl font-semibold">Email us</h1>
-            <p>cloudstringproperties@gmail.com</p>
-          </div>
-        </div>
 
-        <div className=" flex items-center justify-start gap-2">
-           <i className="fa-solid fa-phone text-green-600"></i>
-          <div className="flex flex-col">
-            <h1 className="text-xl font-semibold">Call us</h1>
-            <p>+6221 34490 560 <br /> +6223 67045 450</p>
+          {/* Contact Form */}
+          <div className="flex-1 bg-white rounded-xl p-6 md:p-8 shadow-sm">
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Send us a message
+            </h2>
+
+            <div className="flex flex-col gap-4">
+
+              {/* Full Name */}
+              <div className="flex flex-col gap-1">
+                <label className="font-medium text-gray-700">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="border border-gray-300 rounded-lg px-3 py-3 focus:border-blue-600 focus:outline-none transition"
+                />
+              </div>
+
+
+              {/* Email */}
+              <div className="flex flex-col gap-1">
+                <label className="font-medium text-gray-700">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  placeholder="support@gmail.com"
+                  className="border border-gray-300 rounded-lg px-3 py-3 focus:border-blue-600 focus:outline-none transition"
+                />
+              </div>
+
+
+              {/* Message */}
+              <div className="flex flex-col gap-1">
+                <label className="font-medium text-gray-700">
+                  Message Us
+                </label>
+
+                <textarea
+                  rows="5"
+                  placeholder="Write your message here..."
+                  className="border border-gray-300 rounded-lg px-3 py-3 resize-none focus:border-blue-600 focus:outline-none transition"
+                ></textarea>
+              </div>
+
+
+              {/* Button */}
+              <button className="bg-blue-700 text-white py-3 rounded-lg cursor-pointer hover:bg-blue-800 transition font-semibold mt-2">
+                Submit
+              </button>
+
+            </div>
+
           </div>
+
         </div>
 
       </div>
 
-      <div className="flex flex-col gap-5">
-        <h1 className="text-2xl font-bold">Send us a message</h1>
-
-        <div className="flex flex-col">
-          <label>Full Name</label>
-          <input type="text"  className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"   placeholder="Full name"/>
-
-          <label >Email</label>
-          <input type="email" className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="support@gmail.com" />
-
-          <label htmlFor="">Message Us</label>
-          <textarea className=" border-2 border-gray-400 rounded-md focus:border-2 focus:border-gray-800 focus:outline-none px-1"  placeholder="Write Your Message Here"></textarea>
-
-          <button className="bg-blue-700 text-white py-2 my-2 rounded-md cursor-pointer hover:bg-blue-900">Submit</button>
-        </div>
-      </div>
-      </div>
-     </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

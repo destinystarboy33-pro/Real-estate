@@ -22,7 +22,8 @@ const EditProperty = () => {
     price: "",
     oldPrice: "",
     description: "",
-    distance: ""
+    distance: "",
+    investment: false
   });
 
   const [loading, setLoading] = useState(false);
@@ -64,7 +65,8 @@ const EditProperty = () => {
           price: property.price,
           oldPrice: property.oldPrice,
           description: property.description,
-          distance: property.distance
+          distance: property.distance,
+          investment: property.investment || false
         });
 
       } catch (error) {
@@ -127,6 +129,8 @@ const EditProperty = () => {
       formData.append("description", data.description);
 
       formData.append("distance", data.distance);
+
+      formData.append("investment", data.investment);
 
 
       if (image) {
@@ -329,6 +333,42 @@ const EditProperty = () => {
             />
 
           </div>
+
+
+          {/* INVESTMENT */}
+
+<div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+
+  <div className="flex items-center gap-3">
+
+    <input
+      type="checkbox"
+      name="investment"
+      checked={data.investment}
+      onChange={(e) =>
+        setData({
+          ...data,
+          investment: e.target.checked
+        })
+      }
+      className="h-5 w-5 cursor-pointer"
+    />
+
+    <div>
+
+      <label className="font-semibold text-gray-700 cursor-pointer">
+        Available for Investment
+      </label>
+
+      <p className="text-sm text-gray-500 mt-1">
+        Make this property available on the investment page.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
 
           {/* PROPERTY TYPE */}

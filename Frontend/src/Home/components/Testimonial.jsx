@@ -12,7 +12,15 @@ import Reveal from '../../Components/Reveal'
 
 const reviews = [
 
-    { 
+   
+    {
+      image : woman1,
+        star : ['fa-solid fa-star','fa-solid fa-star','fa-solid fa-star'],
+        comment : 'Joe Hayden is a very professional real estate agent who listened to our specific wants and needs. Since we were from out of town his knowledge of East Louisville and Oldham County was most helpful. I needed handicap accessibility, which is hard to find, and Joe did not waste our time looking at property that had no potential to meet my requirements. We highly recommend him for all of your real estate needs.',
+        name : 'Becky H.'  
+    },
+
+     { 
         image : man1,
         star : ['fa-solid fa-star','fa-solid fa-star','fa-solid fa-star','fa-solid fa-star','fa-solid fa-star'],
         comment : 'We really lucked out with getting Griffin for our agent. He is a very impressive young man, mature beyond his years. He is informed, patient, generous with his time, and sincerely concerned with finding us the right place to live. We look forward to working with him in the future.',
@@ -20,12 +28,7 @@ const reviews = [
 
     },
 
-    {
-      image : woman1,
-        star : ['fa-solid fa-star','fa-solid fa-star','fa-solid fa-star'],
-        comment : 'Joe Hayden is a very professional real estate agent who listened to our specific wants and needs. Since we were from out of town his knowledge of East Louisville and Oldham County was most helpful. I needed handicap accessibility, which is hard to find, and Joe did not waste our time looking at property that had no potential to meet my requirements. We highly recommend him for all of your real estate needs.',
-        name : 'Becky H.'  
-    },
+
 
     {
         image : woman2,
@@ -45,20 +48,33 @@ const reviews = [
 const Testimonial = () => {
   return (
     <Reveal>
-     <Swiper
-     modules={[Pagination]}
-     pagination={{clickable: true}}
-     loop={true}
-      spaceBetween={20}
-     slidesPerView={1}>
-        {reviews.map((items, Index) =>(
+
+<h1 className='text-center text-3xl font-bold mt-20'>Our Clients Reviews</h1>
+
+
+      <Swiper
+  modules={[Pagination]}
+  pagination={{ clickable: true }}
+  loop={true}
+  spaceBetween={20}
+  slidesPerGroup={1}
+  slidesPerView={1}
+  breakpoints={{
+    768: {
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+    },
+  }}
+>
+   {reviews.map((items, Index) =>(
      <SwiperSlide key={Index}>
+
       
     <div className=" mx-5 mt-20">
 
         
 
-      <div className='flex flex-col bg-blue-100 rounded-lg p-5 '>
+      <div className='flex flex-col bg-blue-100 rounded-lg p-5 h-87'>
         <div className='flex justify-between items-center mb-5'>
             <img src={items.image} alt="" className='w-20 h-20 rounded-lg' />
             <p className='font-extrabold  text-center'> {items.name}</p>

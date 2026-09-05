@@ -51,8 +51,8 @@ import { useState } from "react";
               </li>
 
               <li>
-                <NavLink to={"/Services"}
-                className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-white'}>Services</NavLink>
+                <NavLink to={"/investment"}
+                className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-white'}>Invest With Us</NavLink>
               </li>
             </ul>
           </nav>

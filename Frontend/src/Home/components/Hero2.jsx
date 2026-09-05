@@ -52,7 +52,7 @@ const Hero2 = () => {
 
     <Reveal>
 
-      <div className="flex flex-col items-center justify-center mt-10 mb-5 mx-5">
+      <div className="flex flex-col items-center justify-center mt-10 mb-5 px-5 bg-gray-100">
 
         <h1 className="flex items-center justify-center mt-7 font-extrabold text-2xl md:text-4xl text-orange-500 py-5">
           Explore Apartment Types
@@ -66,7 +66,7 @@ const Hero2 = () => {
             <NavLink
               key={Apartment.id}
               to={`/AllHouses?propertyType=${encodeURIComponent(Apartment.name)}`}
-              className="flex flex-col items-center justify-center bg-gray-300 border-2 border-blue-700 rounded-xl px-10 py-5 shadow-gray-400 shadow-xl cursor-pointer hover:bg-gray-200 transition"
+              className="flex flex-col items-center justify-center bg-white/50 mb-10 rounded-xl px-10 py-5 shadow-gray-300 shadow-xl cursor-pointer hover:bg-gray-200 transition"
             >
 
               {/* ICON */}
