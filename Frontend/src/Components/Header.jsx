@@ -89,8 +89,8 @@ import { useState } from "react";
               <li><NavLink to={"/About"} onClick={HandleClose}
                     className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>About</NavLink></li>
 
-                    <li><NavLink to={"/Services"} onClick={HandleClose}
-                    className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>Service</NavLink></li>
+                    <li><NavLink to={"/investment"} onClick={HandleClose}
+                    className={({ isActive}) => isActive ? 'text-orange-400 font-bold' : 'text-black'}>Invest With Us</NavLink></li>
             </ul>
           </nav>
 
