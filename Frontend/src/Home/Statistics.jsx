@@ -1,163 +1,306 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "../Components/Reveal";
 
 const Statistics = () => {
-
   const [count, setCount] = useState(0);
-  const target = 5000000;
-
   const [count2, setCount2] = useState(0);
-  const target2 = 10000000;
-
   const [count3, setCount3] = useState(0);
-  const target3 = 98;
+  const [count4, setCount4] = useState(0);
 
-  // Reference to the statistics section
   const statRef = useRef(null);
 
-
   useEffect(() => {
-
     const observer = new IntersectionObserver(
       (entries) => {
-
         const entry = entries[0];
 
-        if (entry.isIntersecting) {
+        if (!entry.isIntersecting) return;
 
-          // First counter
-          const interval1 = setInterval(() => {
-            setCount((prev) => {
+        const duration = 1800;
+        const startTime = performance.now();
 
-              if (prev < target) {
-                return prev + 10000;
-              }
+        const animate = (currentTime) => {
+          const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+          );
 
-              clearInterval(interval1);
-              return target;
-            });
-          }, 8);
+          // Smooth easing
+          const easeOut = 1 - Math.pow(1 - progress, 3);
 
+          setCount(Math.floor(1200 * easeOut));
+          setCount2(Math.floor(4500 * easeOut));
+          setCount3(Math.floor(100 * easeOut));
+          setCount4(Math.floor(95 * easeOut));
 
-          // Second counter
-          const interval2 = setInterval(() => {
-            setCount2((prev) => {
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
 
-              if (prev < target2) {
-                return prev + 20000;
-              }
+        requestAnimationFrame(animate);
 
-              clearInterval(interval2);
-              return target2;
-            });
-          }, 4);
-
-
-          // Third counter
-          const interval3 = setInterval(() => {
-            setCount3((prev) => {
-
-              if (prev < target3) {
-                return prev + 2;
-              }
-
-              clearInterval(interval3);
-              return target3;
-            });
-          }, 100);
-
-
-          // Stop observing after animation starts
-          observer.disconnect();
-
-        }
-
+        observer.disconnect();
       },
       {
-        threshold: 0.3
+        threshold: 0.3,
       }
     );
-
 
     if (statRef.current) {
       observer.observe(statRef.current);
     }
 
-
     return () => {
       observer.disconnect();
     };
-
   }, []);
-
-
-  // First display
-  let display = count;
-
-  if (count >= 1000000) {
-    display = count / 1000000 + "M";
-  }
-  else if (count >= 1000) {
-    display = count / 1000 + "K";
-  }
-
-
-  // Second display
-  let display2 = count2;
-
-  if (count2 >= 1000000) {
-    display2 = count2 / 1000000 + "M";
-  }
-  else if (count2 >= 1000) {
-    display2 = count2 / 1000 + "K";
-  }
-
 
   return (
     <Reveal>
+      <section
+        ref={statRef}
+        className="w-full bg-gray-100 py-16 md:py-20 mt-15"
+      >
+        <div className="max-w-7xl mx-auto px-5">
 
-      <div ref={statRef}>
+          {/* HEADER */}
 
-        <div className="flex gap-5 items-center justify-center px-15 bg-gray-100 mt-15 py-15">
+          <div className="text-center mb-12">
 
-          {/* Statistics */}
-
-          <div className="w-24">
-            <h1 className="text-center font-bold">
-              Clients Worldwide
-            </h1>
-
-            <p className="text-2xl font-bold text-center tabular-nums">
-              {display}+
+            <p className="text-blue-600 text-sm md:text-base font-semibold uppercase tracking-widest">
+              Our Achievements
             </p>
+
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Numbers That Speak For Us
+            </h2>
+
+            <p className="max-w-2xl mx-auto text-gray-600 mt-4 text-base md:text-lg leading-relaxed">
+              Our commitment to quality service and customer satisfaction
+              continues to make a difference.
+            </p>
+
           </div>
 
 
-          <div className="w-24">
-            <h1 className="text-center font-bold">
-              Year Of Experience
-            </h1>
+          {/* STATISTICS */}
 
-            <p className="text-2xl font-bold text-center tabular-nums">
-              {display2}+
-            </p>
-          </div>
+          <div
+            className="
+              grid
+              grid-cols-2
+              lg:grid-cols-4
+              bg-white
+              rounded-2xl
+              shadow-sm
+              border
+              border-gray-200
+              overflow-hidden
+            "
+          >
+
+            {/* LISTED PROPERTIES */}
+
+            <div
+              className="
+                flex
+                flex-col
+                items-center
+                justify-center
+                text-center
+                px-4
+                py-9
+                md:px-6
+                md:py-12
+                border-r
+                border-b
+                lg:border-b-0
+                border-gray-200
+              "
+            >
+
+              <div
+                className="
+                  w-12
+                  h-12
+                  md:w-14
+                  md:h-14
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-blue-50
+                  text-blue-600
+                  text-lg
+                  md:text-xl
+                  mb-5
+                "
+              >
+                <i className="fa-solid fa-house"></i>
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 tabular-nums">
+                {count.toLocaleString()}+
+              </h3>
+
+              <p className="text-gray-500 font-medium text-xs sm:text-sm md:text-base mt-2">
+                Listed Properties
+              </p>
+
+            </div>
 
 
-          <div className="w-24">
-            <h1 className="text-center font-bold">
-              Customer Satisfaction
-            </h1>
+            {/* HAPPY CLIENTS */}
 
-            <p className="text-2xl font-bold text-center tabular-nums">
-              {count3}%
-            </p>
+            <div
+              className="
+                flex
+                flex-col
+                items-center
+                justify-center
+                text-center
+                px-4
+                py-9
+                md:px-6
+                md:py-12
+                border-b
+                lg:border-b-0
+                lg:border-r
+                border-gray-200
+              "
+            >
+
+              <div
+                className="
+                  w-12
+                  h-12
+                  md:w-14
+                  md:h-14
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-blue-50
+                  text-blue-600
+                  text-lg
+                  md:text-xl
+                  mb-5
+                "
+              >
+                <i className="fa-solid fa-users"></i>
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 tabular-nums">
+                {count2.toLocaleString()}+
+              </h3>
+
+              <p className="text-gray-500 font-medium text-xs sm:text-sm md:text-base mt-2">
+                Happy Clients
+              </p>
+
+            </div>
+
+
+            {/* AWARDS */}
+
+            <div
+              className="
+                flex
+                flex-col
+                items-center
+                justify-center
+                text-center
+                px-4
+                py-9
+                md:px-6
+                md:py-12
+                border-r
+                border-gray-200
+              "
+            >
+
+              <div
+                className="
+                  w-12
+                  h-12
+                  md:w-14
+                  md:h-14
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-blue-50
+                  text-blue-600
+                  text-lg
+                  md:text-xl
+                  mb-5
+                "
+              >
+                <i className="fa-solid fa-award"></i>
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 tabular-nums">
+                {count3}+
+              </h3>
+
+              <p className="text-gray-500 font-medium text-xs sm:text-sm md:text-base mt-2">
+                Awards
+              </p>
+
+            </div>
+
+
+            {/* SATISFACTION */}
+
+            <div
+              className="
+                flex
+                flex-col
+                items-center
+                justify-center
+                text-center
+                px-4
+                py-9
+                md:px-6
+                md:py-12
+              "
+            >
+
+              <div
+                className="
+                  w-12
+                  h-12
+                  md:w-14
+                  md:h-14
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-blue-50
+                  text-blue-600
+                  text-lg
+                  md:text-xl
+                  mb-5
+                "
+              >
+                <i className="fa-solid fa-face-smile"></i>
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 tabular-nums">
+                {count4}%
+              </h3>
+
+              <p className="text-gray-500 font-medium text-xs sm:text-sm md:text-base mt-2">
+                Client Satisfaction
+              </p>
+
+            </div>
+
           </div>
 
         </div>
-
-      </div>
-
+      </section>
     </Reveal>
   );
 };
