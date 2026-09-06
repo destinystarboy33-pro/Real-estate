@@ -305,7 +305,7 @@ const Investment = () => {
 
                     <p className="text-gray-500 mt-2 flex items-center gap-2">
 
-                      <i className="fa-solid fa-location-dot text-blue-600"></i>
+                      <i className="fa-solid fa-location-dot text-red-600"></i>
 
                       {property.location}
 
