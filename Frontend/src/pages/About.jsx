@@ -551,7 +551,7 @@ const About = () => {
                     alt={team.name}
                     className="
                       w-full
-                      h-64
+                      h-95
                       object-cover
                       hover:scale-105
                       transition-transform
