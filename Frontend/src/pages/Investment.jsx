@@ -783,7 +783,7 @@ const Investment = () => {
 
         <div className="max-w-3xl mx-auto text-center text-white">
 
-          <h2 className="text-3xl md:text-5xl font-bold">
+          <h2 className="text-3xl md:text-5xl font-bold mt-5">
             Ready to Explore Your Next Investment?
           </h2>
 
