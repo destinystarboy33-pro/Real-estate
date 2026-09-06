@@ -63,9 +63,9 @@ const EditProperty = () => {
           location: property.location,
           propertyType: property.propertyType,
           price: property.price,
-          oldPrice: property.oldPrice,
+          oldPrice: property.oldPrice ?? '',
           description: property.description,
-          distance: property.distance,
+          distance: property.distance ?? '',
           investment: property.investment || false
         });
 
@@ -142,6 +142,7 @@ const EditProperty = () => {
 
       const response = await axios.patch(
         `https://real-estate-qtye.onrender.com/api/Router/${id}`,
+        
         formData,
         {
           headers: {
@@ -149,6 +150,9 @@ const EditProperty = () => {
           }
         }
       );
+
+      console.log("OLD PRICE:", data.oldPrice);
+console.log("DISTANCE:", data.distance);
 
       console.log(response.data);
 

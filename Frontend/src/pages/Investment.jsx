@@ -35,12 +35,22 @@ const Investment = () => {
         setLoading(true);
 
         const response = await axios.get(
-          "https://real-estate-qtye.onrender.com/api/Router?investment=true"
+          "https://real-estate-qtye.onrender.com/api/Router"
         );
 
-        console.log("INVESTMENT PROPERTIES:", response.data);
+        console.log("ALL PROPERTIES:", response.data);
 
-        setProperties(response.data);
+        // Only properties marked as investment
+        const investmentProperties = response.data.filter(
+          (property) => property.investment === true
+        );
+
+        console.log(
+          "INVESTMENT PROPERTIES:",
+          investmentProperties
+        );
+
+        setProperties(investmentProperties);
 
       } catch (error) {
 
@@ -153,8 +163,6 @@ const Investment = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
 
-            {/* CARD 1 */}
-
             <div className="p-7 rounded-xl bg-gray-50 hover:shadow-lg transition">
 
               <i className="fa-solid fa-house text-3xl text-blue-600"></i>
@@ -170,8 +178,6 @@ const Investment = () => {
 
             </div>
 
-
-            {/* CARD 2 */}
 
             <div className="p-7 rounded-xl bg-gray-50 hover:shadow-lg transition">
 
@@ -189,8 +195,6 @@ const Investment = () => {
             </div>
 
 
-            {/* CARD 3 */}
-
             <div className="p-7 rounded-xl bg-gray-50 hover:shadow-lg transition">
 
               <i className="fa-solid fa-money-bill-wave text-3xl text-blue-600"></i>
@@ -206,8 +210,6 @@ const Investment = () => {
 
             </div>
 
-
-            {/* CARD 4 */}
 
             <div className="p-7 rounded-xl bg-gray-50 hover:shadow-lg transition">
 
@@ -258,7 +260,7 @@ const Investment = () => {
           </div>
 
 
-          {/* PROPERTY CARDS */}
+          {/* INVESTMENT PROPERTIES */}
 
           {properties.length > 0 ? (
 
@@ -280,8 +282,6 @@ const Investment = () => {
                       alt={property.name}
                       className="w-full h-60 object-cover hover:scale-105 transition duration-500"
                     />
-
-                    {/* INVESTMENT BADGE */}
 
                     <div className="absolute top-4 left-4 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
 
@@ -355,17 +355,31 @@ const Investment = () => {
 
           ) : (
 
-            <div className="text-center py-16">
+            /* NO INVESTMENT PROPERTIES */
 
-              <i className="fa-solid fa-chart-line text-4xl text-gray-300"></i>
+            <div className="text-center py-20">
 
-              <h3 className="text-xl font-bold text-gray-700 mt-5">
-                No Investment Properties Available
+              <div className="mx-auto w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center">
+
+                <i className="fa-solid fa-chart-line text-3xl text-blue-600"></i>
+
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-800 mt-6">
+                No Investment Opportunities Available
               </h3>
 
-              <p className="text-gray-500 mt-2">
-                Investment opportunities will appear here when available.
+              <p className="text-gray-500 mt-3 max-w-md mx-auto">
+                There are currently no properties available for investment.
+                Please check back later for new opportunities.
               </p>
+
+              <Link
+                to="/AllHouses"
+                className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition"
+              >
+                Browse Properties
+              </Link>
 
             </div>
 
