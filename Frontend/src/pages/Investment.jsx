@@ -90,7 +90,7 @@ const Investment = () => {
 
           <div className="max-w-3xl text-white">
 
-            <p className="uppercase tracking-[4px] text-blue-400 font-semibold my-8">
+            <p className="uppercase tracking-[4px] text-blue-400 font-semibold mb-5 mt-10">
               Real Estate Investment
             </p>
 
